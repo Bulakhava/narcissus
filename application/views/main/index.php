@@ -18,7 +18,7 @@
             <div class="flex-item">
                 <router-link to="/articles" class="link-item link-item-blue">
                     <div class="img">
-                        <img src="src/assets/img/tickets.png" alt="">
+                        <img src="/img/tickets.png" alt="tickets">
                     </div>
                     <div class="title">Статьи</div>
                 </router-link>
@@ -26,7 +26,7 @@
             <div class="flex-item">
                 <router-link to="/gallery" class="link-item link-item-green">
                     <div class="img">
-                        <img src="src/assets/img/camera.png" alt="">
+                        <img src="/img/camera.png" alt="camera">
                     </div>
                     <div class="title">Фото</div>
                 </router-link>
@@ -34,7 +34,7 @@
             <div class="flex-item">
                 <a href="#" class="link-item link-item-red">
                     <div class="img">
-                        <img src="src/assets/img/beer.png" width="70" alt="">
+                        <img src="/img/beer.png" width="70" alt="beer">
                     </div>
                     <div class="title">Обо мне</div>
                 </a>
@@ -42,16 +42,13 @@
             <div class="flex-item">
                 <a href="#" class="link-item link-item-orange">
                     <div class="img">
-                        <img src="src/assets/img/iPad.png" width="70" alt="">
+                        <img src="/img/iPad.png" width="70" alt="iPad">
                     </div>
                     <div class="title">Контакты</div>
                 </a>
             </div>
         </div>
     </div>
-
-
-
 
 </section>
 

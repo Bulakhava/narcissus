@@ -2,7 +2,7 @@
 
 return [
     'host' => 'localhost',
-    'name' => 'mvc_db',
+    'name' => 'narcissus',
     'password' => '',
     'user' => 'root'
 ];

@@ -4,11 +4,13 @@ return [
     '' => [
         'controller' => 'main',
         'action' => 'index',
-        'folderCtrl' => ''
+        'folderCtrl' => '',
+        'model'=> null
      ],
     'registration'=>[
         'controller' => 'registration',
         'action' => 'registration',
-        'folderCtrl' => ''
+        'folderCtrl' => '',
+        'model' => 'Account'
     ]
 ];
