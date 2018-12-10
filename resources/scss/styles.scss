@@ -1,0 +1,195 @@
+@import "variables.scss";
+
+
+@font-face {
+  font-family: 'MariadPro';
+  src:url('/public/fonts/mariadPro.otf');
+}
+
+@font-face {
+  font-family: 'LavanderiaC';
+  src:url('/public/fonts/LavanderiaC.ttf');
+}
+
+@font-face {
+  font-family: 'SegoeUI';
+  src:url('/public/fonts/9404.ttf');
+}
+
+
+@font-face {
+  font-family: 'RobotoMedium';
+  src: url('/public/fonts/Roboto-Medium.eot');
+  src: url('/public/fonts/Roboto-Medium.eot?#iefix')
+  format('embedded-opentype'),
+  url('/public/fonts/Roboto-Medium.woff') format('woff'),
+  url('/public/fonts/Roboto-Medium.ttf') format('truetype');
+}
+
+
+body{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.container{
+  font-family: 'Roboto';
+}
+
+.wrapper{
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.flex-container{
+  display: flex;
+}
+
+.butt {
+  display:inline-block;
+  overflow: hidden;
+  font-size: 11px;
+  padding:8px 20px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor:pointer;
+  transition: background-color 0.1s;
+  box-shadow: 1px 1px 1px #c1c1c1;
+  text-decoration:none;
+  color:#fff;
+  border:none;
+  text-transform: uppercase;
+  font-family:RobotoMedium, Roboto;
+  &:active, &:focus{
+    outline:none;
+
+  }
+  &:disabled{
+    background-color:#BFC3C5;
+    border:1px solid #BFC3C5;
+    text-shadow:none;
+    &:hover{
+      background-color:#BFC3C5;
+      cursor:not-allowed;
+    }
+  }
+  img {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  sup{
+    font-size:10px;
+  }
+}
+
+.butt-green{
+  background-color:$green-color;
+  &:hover{
+    background-color:lighten($green-color, 10%);
+  }
+}
+
+.butt-blue{
+  background-color:$blue-color;
+  &:hover{
+    background-color:lighten($blue-color, 10%);
+  }
+}
+
+.butt-red{
+  background-color:$red-color;
+  &:hover{
+    background-color:lighten($red-color, 10%);
+  }
+}
+
+.user-form{
+  color:$title-color;
+  width:400px;
+  margin:70px auto;
+  .title{
+    font-size:35px;
+    text-align:center;
+    margin-bottom:30px;
+  }
+  div.form-group{
+    margin-bottom:25px;
+    label, input,textarea{
+      display:block;
+     // margin-bottom:20px;
+      font-size:15px;
+      color: #8b8b8b;
+    }
+    input, textarea{
+      width:100%;
+      border: none;
+      border-bottom:1px solid #BFC3C5;
+      padding-bottom:9px;
+      padding-top: 9px;
+      border-radius:2px;
+      color:$text-color;
+      &:focus, &:active{
+        outline: none;
+      }
+      &.error{
+        border:1px solid $pink-color;
+        // border-color:$pink-color;
+      }
+    }
+    textarea{
+      height:300px;
+    }
+    label{
+      display:inline-block;
+      position: relative;
+      &:not(.not-required):after{
+        position: absolute;
+        content:"*";
+        color: #8b8b8b;
+        font-size:21px;
+        top:1px;
+        margin-left:2px;
+      }
+    }
+    .message{
+      float:right;
+      display:inline-block;
+      font-size:15px;
+      color: $pink-color;
+    }
+
+  }
+  .form-buttons{
+    margin-top:50px;
+    a{
+      float:right;
+      color:$text-color;
+      text-decoration:none;
+      &:hover{
+        text-decoration:underline;
+      }
+    }
+  }
+
+}
+
+.exist{
+  color:$pink-color;
+  font-size:16px;
+}
+
+@media(max-width: 1750px){
+  .wrapper{
+    max-width: 80%;
+  }
+}
+
+@media(max-width: 1050px){
+  .wrapper{
+    padding: 0 30px;
+    max-width: 100%;
+  }
+
+}
+

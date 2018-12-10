@@ -1,0 +1,33 @@
+
+footer{
+  background-color:#222929;
+  padding:28px 25px;
+}
+.footer-wrapper{
+  max-width:944px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-around;
+  font-family:MariadPro;
+  font-size:15px;
+  line-height:22px;
+  color:#aeaeae;
+  nav,.contact{
+
+    ul{
+      padding:0;
+      margin:0;
+      list-style:none;
+      li{
+        a{
+
+          color:#aeaeae;
+          text-decoration:none;
+          &:hover{
+            text-decoration:underline;
+          }
+        }
+      }
+    }
+  }
+}

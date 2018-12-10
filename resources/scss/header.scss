@@ -1,0 +1,84 @@
+@import "variables.scss";
+
+
+header{
+  height: 90px;
+  a{
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-weight: 800;
+  }
+  .header_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+  }
+  .logo{
+    width: 240px;
+    font-family: LavanderiaC;
+    font-size:41px;
+    max-width:240px;
+    flex-grow:1;
+    text-align:left;
+    text-transform:none;
+    font-weight: 400;
+    .gray{
+      color:#3e3e3e;
+    }
+    .pink{
+      color:$pink-text-color;
+    }
+  }
+
+  .navigation{
+    flex-grow: 1;
+    ul{
+      list-style: none;
+      display: flex;
+      li{
+        padding: 0 15px;
+        a{
+          color:#3e3e3e;
+          &:hover{
+            color:$pink-color;
+          }
+        }
+      }
+    }
+  }
+
+  .input-panel{
+    ul{
+      display:flex;
+      list-style:none;
+      background-color:$pink-color;
+      margin:0;
+      padding:0;
+      border-radius:7px;
+      overflow:hidden;
+      li{
+        &:hover{
+          background-color:lighten($pink-color, 15%);
+        }
+        a{
+          display: block;
+          font-size:11px;
+          color:#fff;
+          padding:8px 20px;
+          letter-spacing: 1px;
+        }
+      }
+    }
+    #login{
+      border-right: 1px solid lighten($pink-color, 10%);
+    }
+
+  }
+
+
+
+
+}
