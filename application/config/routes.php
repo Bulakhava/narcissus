@@ -5,9 +5,15 @@ return [
         'controller' => 'main',
         'action' => 'index',
         'folderCtrl' => '',
-        'model'=> null
-     ],
-    'registration'=>[
+        'model' => null
+    ],
+    'registration' => [
+        'controller' => 'registration',
+        'action' => 'registration',
+        'folderCtrl' => '',
+        'model' => 'Account'
+    ],
+    'registration/confirm/{token:\w+}' => [
         'controller' => 'registration',
         'action' => 'registration',
         'folderCtrl' => '',

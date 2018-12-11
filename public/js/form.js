@@ -11,7 +11,8 @@ $(function () {
       startValidator($form, function () {
         if ($form.find('.has-error').length) {} else {
           sendForm($form, function (res) {
-            createModal(JSON.parse(res));
+            var result = JSON.parse(res);
+            createModal(result.message, result.status);
             resetForm($form);
           });
         }
@@ -72,15 +73,11 @@ $(function () {
             }
           }
         },
-        pepeatPassword: {
-          trigger: 'blur',
+        repeatPassword: {
+          trigger: 'keyup blur',
           validators: {
             notEmpty: {
               message: 'Заполните это поле'
-            },
-            identical: {
-              field: 'password',
-              message: 'Пароли не совпадают'
             }
           }
         }
@@ -96,7 +93,16 @@ $(function () {
 
   ;
 
+  function checkMatchPasswords() {
+    return $('#password').val() === $('#repeatPassword').val();
+  }
+
   function sendForm($form, callback) {
+    if (!checkMatchPasswords()) {
+      createModal('Пароли не совпадают', 'error');
+      return;
+    }
+
     $.ajax({
       type: $form.attr('method'),
       url: $form.attr('action'),
@@ -117,12 +123,12 @@ $(function () {
     $form.bootstrapValidator("resetForm", true);
   }
 
-  function createModal(res, callback) {
+  function createModal(msg, status, callback) {
     var body = $('body');
     var modal = $('<div class="modal-overlay"><div class="modal slideInDown"><div class="modal-msg"><div class="modal-msg_text"></div><button class="modal-close butt butt-green">OK</button></div></div></div>');
-    modal.find('.modal-msg_text').text(res.message);
+    modal.find('.modal-msg_text').text(msg);
 
-    if (res.status === 'error') {
+    if (status === 'error') {
       modal.find('.modal-msg_text').addClass('error');
     }
 

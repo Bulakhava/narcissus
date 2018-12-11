@@ -26,17 +26,15 @@
 
         <div class="form-group">
             <label>Пароль</label>
-            <input type="password" name="password">
+            <input type="password" name="password" id="password">
             <div class="error"></div>
         </div>
 
         <div class="form-group">
             <label>Повторите пароль</label>
-            <input type="password" name="repeatPassword">
+            <input type="password" name="repeatPassword" id="repeatPassword">
             <div class="error"></div>
         </div>
-
-<!--        <div class="not-match exist">Пользователь с таким email-ом уже существует</div>-->
 
         <div class="form-buttons">
             <button class="butt butt-blue" type="submit">Отправить</button>

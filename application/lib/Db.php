@@ -8,23 +8,13 @@ class Db
 {
     protected $db;
 
+    private $error_info;
+
     public function __construct()
     {
         $config = require 'application/config/db.php';
         $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'], $config['user'], $config['password']);
     }
-
-//    public function query($sql, $params=[])
-//    {
-//      $stmt = $this->db->prepare($sql);
-//      if(!empty($params)){
-//          foreach ($params as $key => $val){
-//              $stmt->bindValue(':'.$key, $val);
-//          }
-//      }
-//        $stmt->execute();
-//        return $stmt;
-//    }
 
     public function query($sql, $params = []) {
         $stmt = $this->db->prepare($sql);
@@ -36,11 +26,22 @@ class Db
                     $type = PDO::PARAM_STR;
                 }
                 $stmt->bindValue(':'.$key, $val, $type);
-            }
+                }
         }
         $stmt->execute();
+        $this->setError_info($stmt->errorInfo());
+      //  $this->error_info = $stmt->errorInfo();
         return $stmt;
     }
+
+    public function setError_info($err) {
+        $this->error_info = $err;
+      //  return $this->error_info;
+    }
+
+     public function getError_info() {
+        return $this->error_info;
+     }
 
     public function row($sql, $params=[]){
         $result = $this->query($sql,$params);
