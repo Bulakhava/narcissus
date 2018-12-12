@@ -1,8 +1,18 @@
 @import "variables.scss";
 
+.top-navigation_fixed{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: $box-shadow;
+  animation: fixMenu 0.4s ease;
+}
 
 header{
   height: 90px;
+    background-color: #fff;
   a{
     font-size: 13px;
     text-transform: uppercase;
@@ -51,6 +61,7 @@ header{
   }
 
   .input-panel{
+    display: inline-block;
     ul{
       display:flex;
       list-style:none;
@@ -77,8 +88,38 @@ header{
     }
 
   }
+}
 
 
 
+@media(max-width:850px){
+  header{
+    .navigation{
+      display: none;
+    }
+    .actions{
+      flex-grow: 1;
+      text-align: right;
+      margin-right: 40px;
+  
+    }
+    .burger{
+      display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background: url('/img/burger.png') center center no-repeat;
+    background-size: 30px;
+    }
+  }
+}
 
+
+
+@media(max-width:590px){
+  header{
+    .actions{
+      display: none;
+    }
+  }
 }

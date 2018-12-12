@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/public/css/style.min.css">
     <script src="/public/libraries/jquery-3.3.1.min.js"></script>
     <script src="/public/libraries/bootstrapValidator.min.js"></script>
+    <script src="/public/js/global.js"></script>
     <script src="/public/js/form.js"></script>
 </head>
 <body>
