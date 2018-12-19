@@ -10,6 +10,42 @@
   animation: fixMenu 0.4s ease;
 }
 
+
+ .input-panel{
+    display: inline-block;
+    ul{
+      display:flex;
+      list-style:none;
+      background-color:$pink-color;
+      margin:0;
+      padding:0;
+      border-radius:7px;
+      overflow:hidden;
+      li{
+        &:hover{
+          background-color:lighten($pink-color, 15%);
+        }
+        a{
+          display: block;
+          font-size:11px;
+          color:#fff;
+          padding:8px 20px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          text-decoration: none;
+          font-family: 'Roboto';
+          font-weight: 800;
+        }
+      }
+    }
+    .login{
+      border-right: 1px solid lighten($pink-color, 10%);
+    }
+
+  }
+
+
+
 header{
   height: 90px;
     background-color: #fff;
@@ -59,45 +95,53 @@ header{
       }
     }
   }
+}
 
-  .input-panel{
-    display: inline-block;
-    ul{
-      display:flex;
-      list-style:none;
-      background-color:$pink-color;
-      margin:0;
-      padding:0;
+
+
+
+.user{
+   text-transform: none;
+  margin-left:40px;
+  text-align:center;
+  .name{
+     color:$pink-text-color;
+     display:inline-block;
+     span, a{
+      color:$pink-color;
+      margin-right: 10px;
+     }
+  }
+  .exit{
+     background-color:$pink-color;
       border-radius:7px;
-      overflow:hidden;
-      li{
-        &:hover{
-          background-color:lighten($pink-color, 15%);
-        }
-        a{
-          display: block;
-          font-size:11px;
+    margin-left:20px;
+         font-size:11px;
           color:#fff;
           padding:8px 20px;
           letter-spacing: 1px;
+          text-transform: uppercase;
+          text-decoration: none;
+          font-family: 'Roboto';
+          font-weight: 800;
+           &:hover{
+          background-color:lighten($pink-color, 15%);
         }
-      }
-    }
-    #login{
-      border-right: 1px solid lighten($pink-color, 10%);
-    }
-
+  }
+  img{
+    vertical-align:bottom;
+    margin-right:3px;
   }
 }
 
 
 
-@media(max-width:850px){
+@media(max-width:950px){
   header{
     .navigation{
       display: none;
     }
-    .actions{
+    .actions, .user{
       flex-grow: 1;
       text-align: right;
       margin-right: 40px;
@@ -110,6 +154,22 @@ header{
     height: 30px;
     background: url('/img/burger.png') center center no-repeat;
     background-size: 30px;
+       &.cross{
+        background: url('../img/tag-close.svg') no-repeat;
+        background-position: center left;
+        background-size: 25px;
+      }
+    }
+  }
+}
+
+
+
+
+@media(max-width:700px){
+  header{
+     .user{
+      display: none;
     }
   }
 }
@@ -118,7 +178,7 @@ header{
 
 @media(max-width:590px){
   header{
-    .actions{
+    .actions, .user{
       display: none;
     }
   }

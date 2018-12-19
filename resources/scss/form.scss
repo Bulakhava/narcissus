@@ -76,7 +76,60 @@
     }
   }
 
+
+  .file-group{
+    margin-top: 30px;
+    display: flex;
+     align-items: center;
+  }
+
+      input[type=file]{
+       display: none;
+  }
+    .addFile-label{
+      display: inline-block;
+      margin-top: 0;
+      span{
+        margin-right: 6px;
+      }
+      span, img{
+        vertical-align: middle;
+      }
+
+  }
+
+
+   #file-name{
+    display: none;
+    font-size: 13px;
+    color:$gray-color;
+    margin-left: 20px;
+    span, img{
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    .delete{
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      cursor: pointer;
+      svg{
+        fill:#CECECE;
+      }
+      &:hover{
+        svg{
+          fill: $green-color;
+        }
+
+      }
+    }
+  }
+
+
 }
+
+
+
 
 @media(max-width:480px){
 .user-form{

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'authorize'=>['index'],
-    'guest'=>['index'],
-    'admin'=>['index']
+    'authorized'=>['index','logout'],
+    'guest'=>['index', 'registration', 'confirm', 'login'],
+    'admin'=>['index', 'registration', 'confirm', 'login','logout', 'flowersList', 'addSort']
 ];

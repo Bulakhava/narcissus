@@ -13,7 +13,14 @@ class Db
     public function __construct()
     {
         $config = require 'application/config/db.php';
-        $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'], $config['user'], $config['password']);
+
+        try{
+            $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'], $config['user'], $config['password'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        } catch (PDOException $e) {
+              echo 'Ошибка при подключении к базе данных';
+        }
+
+        
     }
 
     public function query($sql, $params = []) {
@@ -36,7 +43,6 @@ class Db
 
     public function setError_info($err) {
         $this->error_info = $err;
-      //  return $this->error_info;
     }
 
      public function getError_info() {

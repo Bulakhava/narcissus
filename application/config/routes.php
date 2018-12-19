@@ -13,10 +13,34 @@ return [
         'folderCtrl' => '',
         'model' => 'Account'
     ],
-    'registration/confirm/{token:\w+}' => [
-        'controller' => 'registration',
-        'action' => 'registration',
+    'confirm' => [
+       'controller' => 'confirm',
+        'action' => 'confirm',
         'folderCtrl' => '',
         'model' => 'Account'
-    ]
+    ],
+    'login' => [
+       'controller' => 'login',
+        'action' => 'login',
+        'folderCtrl' => '',
+        'model' => 'Account'
+    ],
+    'logout' => [
+        'controller' => 'login',
+        'action' => 'logout',
+        'folderCtrl' => '',
+        'model' => null
+    ],
+    'admin/flowers-list' => [
+        'controller' => 'flowersList',
+        'action' => 'flowersList',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Flower'
+    ],
+    'admin/add-sort' => [
+        'controller' => 'addSort',
+        'action' => 'addSort',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Flower'
+    ],
 ];

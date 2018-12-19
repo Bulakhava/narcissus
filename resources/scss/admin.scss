@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+.admin-layout{
+    display: flex;
+    padding-top: 80px;
+    
+   &_side-panel{
+   	width:22%;
+   	padding-right: 100px;
+     ul{
+     	padding:0;
+     	list-style: none;
+     	border: $gray-border;
+     	padding:17px 17px 0 17px;
+     	li{
+     		margin-bottom: 17px;
+     	}
+     	a{
+     		    text-decoration: none;
+               color: $gray-color;
+             text-shadow: 0 0 0 rgba(0,0,0,.5);
+             text-transform: uppercase;
+             font-size: 14px;
+            &:hover, &.active{
+            	color: $pink-color;
+            }
+           span{
+            	display: inline-block;
+            	width:40px;
+            }
+     	}
+     }
+   }
+
+&_content{
+    width: 78%;
+}
+
+}

@@ -1,20 +1,31 @@
-$(function () {
 
-    var $window = $(window);
+  
+ var $window = $(window);
 
-    formValidation();
-
-
-    function formValidation() {
-        var $form = $('form');
+    function formValidation($form, $fields) {
+          console.log($fields);
         if ($form.length) {
-            startValidator($form, function () {
+            startValidator($form, $fields, function () {
                 if ($form.find('.has-error').length) {
                 } else {
-                    sendForm($form, function (res) {
+
+                        sendForm($form, function (res) {
+
                         var result = JSON.parse(res);
-                        createModal(result.message, result.status);
-                        resetForm($form);
+
+                              if (result.url) {
+                               window.location.href = result.url;
+                                } else {
+                                    createModal(result.message, result.status);
+
+                                }
+
+                        
+
+                        if(result.status === 'success'){
+                             resetForm($form);
+                        }
+                       
                     });
                 }
             });
@@ -22,73 +33,15 @@ $(function () {
     }
 
 
-    function startValidator($form, onSubmit) {
-        $form.bootstrapValidator({
+    function startValidator($form, $fields, onSubmit) {
+              $form.bootstrapValidator({
             framework: 'bootstrap',
             submitButtons: 'button[type="submit"]',
-            fields: {
-                firstName: {
-                    trigger: 'keyup blur',
-                    validators: {
-                        notEmpty: {
-                            message: 'Заполните это поле'
-                        },
-                        regexp: {
-                            regexp: '^[a-zA-Zа-яёА-ЯЁ0-9]{3,30}$',
-                            message: 'Разрешены только буквы и цифры от 3 до 30 символов'
-                        }
-                    }
-                },
-                lastName: {
-                    trigger: 'keyup blur',
-                    validators: {
-                        notEmpty: {
-                            message: 'Заполните это поле'
-                        },
-                        regexp: {
-                            regexp: '^[a-zA-Zа-яёА-ЯЁ0-9]{3,30}$',
-                            message: 'Разрешены только буквы и цифры от 3 до 30 символов'
-                        }
-                    }
-                },
-                email: {
-                    trigger: 'keyup blur',
-                    validators: {
-                        notEmpty: {
-                            message: 'Заполните это поле'
-                        },
-                        regexp: {
-                            regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
-                            message: 'Введите корректный Email'
-                        }
-                    }
-                },
-                password: {
-                    trigger: 'keyup blur',
-                    validators: {
-                        notEmpty: {
-                            message: 'Заполните это поле'
-                        },
-                        regexp: {
-                            regexp: '^[a-z0-9]{6,30}$',
-                            message: 'Разрешены только латинские буквы и цифры от 6 до 30 символов'
-                        },
-                    }
-                },
-                repeatPassword: {
-                    trigger: 'keyup blur',
-                    validators: {
-                        notEmpty: {
-                            message: 'Заполните это поле'
-                        }
-                    }
-                },
-
-            },
+            fields: $fields,
             showErrors: function () {
                 return;
             }
-        })
+            })
             .on('success.form.bv', function (e) {
                 e.preventDefault();
                 onSubmit();
@@ -103,12 +56,7 @@ $(function () {
 
     function sendForm($form, callback) {
 
-        if (!checkMatchPasswords()) {
-            createModal('Пароли не совпадают', 'error');
-            return;
-       }
-
-        $.ajax({
+     $.ajax({
             type: $form.attr('method'),
             url: $form.attr('action'),
             data: new FormData(document.querySelector('form')),
@@ -150,7 +98,37 @@ $(function () {
 
         });
 
+  }
 
+
+$(function () {
+
+    var file =null;
+
+  $('#fileToUpload').change(function (event) {
+        file = event.target.files[0];
+        if (file && file.name) {
+            if ((file.size / 1048576) < 10) {
+                addFileName(file);
+            } else {
+                // $('.file-requirements').removeClass('hidden');
+            }
         }
+
+    });
+
+    function addFileName(file) {
+        $('#file-name').show()
+            .find('.text').text(file.name).end()
+            .find('.file-size').text(`(${(Math.round(file.size / 1024 * 10)) / 10}) Kb`);
+    }
+
+    $('#delete-file').on('click', deleteFile);
+
+    function deleteFile() {
+        $('#fileToUpload').val("");
+        file = null;
+        $('#file-name').hide().find('.text').text('').end().find('.file-size').text('');
+    };
 
 });

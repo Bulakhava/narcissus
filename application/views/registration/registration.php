@@ -4,36 +4,31 @@
 
     <div class="title">Регистрация</div>
 
-    <form class="registration" action="/registration" method="post">
+    <form id="form-registration" action="/registration" method="post">
 
         <div class="form-group">
             <label>Имя</label>
             <input type="text" name="firstName">
-            <div class="error"></div>
         </div>
 
         <div class="form-group">
             <label>Фамилия</label>
             <input type="text" name="lastName">
-            <div class="error"></div>
         </div>
 
         <div class="form-group">
             <label>Email</label>
             <input type="text" name="email">
-            <div class="error"></div>
         </div>
 
         <div class="form-group">
             <label>Пароль</label>
             <input type="password" name="password" id="password">
-            <div class="error"></div>
         </div>
 
         <div class="form-group">
             <label>Повторите пароль</label>
             <input type="password" name="repeatPassword" id="repeatPassword">
-            <div class="error"></div>
         </div>
 
         <div class="form-buttons">
@@ -45,4 +40,76 @@
 </div>
 </div>
 
-<?php if(isset($td)) {include 'application/views/layouts/modal-info.php'; } ?>
+<script>
+
+   $(function () {
+
+       var fields = {
+                firstName: {
+                    trigger: 'keyup blur',
+                    validators: {
+                        notEmpty: {
+                            message: 'Заполните это поле'
+                        },
+                        regexp: {
+                            regexp: '^[a-zA-Zа-яёА-ЯЁ0-9]{3,30}$',
+                            message: 'Разрешены только буквы и цифры от 3 до 30 символов'
+                        }
+                    }
+                },
+                lastName: {
+                    trigger: 'keyup blur',
+                    validators: {
+                        notEmpty: {
+                            message: 'Заполните это поле'
+                        },
+                        regexp: {
+                            regexp: '^[a-zA-Zа-яёА-ЯЁ0-9]{3,30}$',
+                            message: 'Разрешены только буквы и цифры от 3 до 30 символов'
+                        }
+                    }
+                },
+                email: {
+                    trigger: 'keyup blur',
+                    validators: {
+                        notEmpty: {
+                            message: 'Заполните это поле'
+                        },
+                        regexp: {
+                            regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                            message: 'Введите корректный Email'
+                        }
+                    }
+                },
+                password: {
+                    trigger: 'keyup blur',
+                    validators: {
+                        notEmpty: {
+                            message: 'Заполните это поле'
+                        },
+                        regexp: {
+                            regexp: '^[a-z0-9]{6,30}$',
+                            message: 'Разрешены только латинские буквы и цифры от 6 до 30 символов'
+                        },
+                    }
+                },
+                repeatPassword: {
+                    trigger: 'keyup blur',
+                    validators: {
+                        notEmpty: {
+                            message: 'Заполните это поле'
+                        }
+                    }
+                },
+
+            };
+
+
+            formValidation($('#form-registration'), fields);
+
+
+ });
+
+
+  
+</script>
