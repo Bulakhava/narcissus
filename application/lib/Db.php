@@ -15,7 +15,8 @@ class Db
         $config = require 'application/config/db.php';
 
         try{
-            $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'], $config['user'], $config['password'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+            $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'], $config['user'], $config['password']);
+            // $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
               echo 'Ошибка при подключении к базе данных';
         }
@@ -36,9 +37,11 @@ class Db
                 }
         }
         $stmt->execute();
+
         $this->setError_info($stmt->errorInfo());
-      //  $this->error_info = $stmt->errorInfo();
+        $this->error_info = $stmt->errorInfo();
         return $stmt;
+
     }
 
     public function setError_info($err) {

@@ -73,7 +73,9 @@
     }
 
     function resetForm($form) {
+        deleteFile();
         $form.bootstrapValidator("resetForm", true);
+
     }
 
     function createModal(msg, status, callback) {
@@ -100,13 +102,19 @@
 
   }
 
+  function deleteFile() {
+        $('#fileToUpload').val("");
+        // file = null;
+        $('#file-name').hide().find('.text').text('').end().find('.file-size').text('');
+    };
+
 
 $(function () {
 
-    var file =null;
+ //   var file =null;
 
   $('#fileToUpload').change(function (event) {
-        file = event.target.files[0];
+       var file = event.target.files[0];
         if (file && file.name) {
             if ((file.size / 1048576) < 10) {
                 addFileName(file);
@@ -125,10 +133,6 @@ $(function () {
 
     $('#delete-file').on('click', deleteFile);
 
-    function deleteFile() {
-        $('#fileToUpload').val("");
-        file = null;
-        $('#file-name').hide().find('.text').text('').end().find('.file-size').text('');
-    };
+    
 
 });

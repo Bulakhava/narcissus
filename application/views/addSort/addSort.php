@@ -4,21 +4,21 @@
 
     <div class="title"><?php echo $title ?></div>
 
-    <form id="form-login" action="/login" method="post">
+    <form id="form-addSort" action="/admin/add-sort" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
             <label>Название</label>
-            <input type="text" name="name">
+            <input type="text" name="title">
         </div>
 
         <div class="form-group">
             <label>Текст</label>
-            <textarea name="name"></textarea>    
+            <textarea name="text"></textarea>    
         </div>
 
 
 
-      <div class="file-group" style="">
+      <div class="file-group">
 
 
                <label for="fileToUpload" class="addFile-label butt butt-green">
@@ -40,7 +40,7 @@
                         </svg>
                     </span>
                 </div>
-    </div>
+             </div>
 
 
          <div class="form-buttons">
@@ -54,6 +54,32 @@
 </section>
 
 <script>
+
+$(function () {
+
+       var fields = {
+            
+                title: {
+                    trigger: 'keyup blur',
+                    validators: {
+                        notEmpty: {
+                            message: 'Заполните это поле'
+                        }
+                    }
+                },
+                text: {
+                    trigger: 'keyup blur',
+                    validators: {
+                        notEmpty: {
+                            message: 'Заполните это поле'
+                        }
+                    }
+                }
+
+            };
+
+     formValidation($('#form-addSort'), fields);
+});
 
 
 </script>

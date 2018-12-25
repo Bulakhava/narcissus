@@ -35,12 +35,12 @@ return [
         'controller' => 'flowersList',
         'action' => 'flowersList',
         'folderCtrl' => 'admin\\',
-        'model' => 'Flower'
+        'model' => 'Sort'
     ],
     'admin/add-sort' => [
         'controller' => 'addSort',
         'action' => 'addSort',
         'folderCtrl' => 'admin\\',
-        'model' => 'Flower'
+        'model' => 'Sort'
     ],
 ];

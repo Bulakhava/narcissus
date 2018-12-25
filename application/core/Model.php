@@ -16,7 +16,6 @@ abstract class Model
     public function clearString($str){
     	$s = trim($str);
         $s = htmlspecialchars($s);
-        // $s = mysql_escape_string($s);
         return $s;
     }
 
