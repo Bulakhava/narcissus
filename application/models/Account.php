@@ -111,7 +111,7 @@ class Account extends Model{
             if(!password_verify ($password, $data[0]['password'])){
                 return ['message' => 'Неверный пароль', 'status' => 'error'];
             } else {
-                return ['message' => 'Ok', 'status' => 'success', 'id' => $data[0]['id'], 'firstName' => $data[0]['firstName']];
+                return ['message' => 'Ok', 'status' => 'success', 'id' => $data[0]['id'], 'first_name' => $data[0]['first_name']];
             }
       
         }

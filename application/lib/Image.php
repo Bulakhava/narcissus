@@ -8,7 +8,7 @@ class Image{
 
 	private $img;
 	private $info;
-	private $extensions_list = ['jpg', 'jpeg', 'png', 'gif'];
+	private $extensions_list = ['jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG'];
 
     public function __construct($file){
         $this->img = $_FILES[$file];

@@ -4,9 +4,11 @@ namespace application\models;
 
 use application\core\Model;
 
-class Sort extends Model{
+class Sort extends Model
+{
 
-    public function sortAdd($post) {
+    public function sortAdd($post)
+    {
         $params = [
             'id' => 0,
             'title' => $post['title'],
@@ -15,22 +17,40 @@ class Sort extends Model{
             'has_categories' => null
         ];
 
+        $this->db->query('INSERT INTO sorts VALUES (:id, :title, :text, :date, :has_categories)', $params);
+        if ($this->db->getError_info()[1] === 1062) {
+            return ['message' => 'Сорт с таким названием уже существует', 'status' => 'error'];
+            exit;
+        }
+        return ['id' => $this->db->lastInsertId(), 'status' => 'success'];
+
+    }
 
 
-             $this->db->query('INSERT INTO sorts VALUES (:id, :title, :text, :date, :has_categories)', $params);
+    public function getSortsList()
+    {
+        return $this->db->row('SELECT id, title FROM sorts');
+    }
 
-            // print_r( $this->db->getError_info()[1]);
+    public function deleteSort($id)
+    {
+        $params = [
+            'id' => $id,
+        ];
+        $this->db->query('DELETE FROM sorts WHERE id = :id', $params);
+        $this->rmRec('img/sorts/' . $id);
+    }
 
-             if( $this->db->getError_info()[1] === 1062){
-                  return ['message' => 'Сорт с таким названием уже существует', 'status' => 'error'];
-                   exit;
-             }
-
-             return ['id' => $this->db->lastInsertId(), 'status' => 'success'];
-
-           //  return  $this->db->lastInsertId();
-            
-      }
+    private function rmRec($path)
+    {
+        if (is_file($path)) return unlink($path);
+        if (is_dir($path)) {
+            foreach (scandir($path) as $p) if (($p != '.') && ($p != '..'))
+                $this->rmRec($path . DIRECTORY_SEPARATOR . $p);
+            return rmdir($path);
+        }
+        return false;
+    }
 
 
 }

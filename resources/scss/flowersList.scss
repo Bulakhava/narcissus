@@ -1,0 +1,17 @@
+@import "variables.scss";
+
+.flowers-list{
+   table{
+     font-size: 20px;
+   }
+  td{
+    padding: 10px 40px 10px 0;
+  }
+  a{
+    color:$green-color;
+  }
+  .delete{
+    color:$red-color;
+    cursor: pointer;
+  }
+}

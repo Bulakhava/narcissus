@@ -14,6 +14,7 @@ class AddSortController extends AdminController {
 
 
               $image = new Image('file');
+
               $result = $image->checkFile();
 
                if($result['status'] === 'error'){
@@ -23,6 +24,7 @@ class AddSortController extends AdminController {
                } else {
 
                     $add = $this->model->sortAdd($_POST);
+
                      if($add['status'] === 'error'){
                          $this->view->message('error', $add['message']);
                          exit;
@@ -30,7 +32,7 @@ class AddSortController extends AdminController {
                         
 
 
-                           $image->postUploadImage($image->getImg()['tmp_name'], $add['id']);
+                           $image->uploadSortImage($image->getImg()['tmp_name'], $add['id']);
 
 
 

@@ -43,4 +43,10 @@ return [
         'folderCtrl' => 'admin\\',
         'model' => 'Sort'
     ],
+    'admin/delete-sort' => [
+        'controller' => 'flowersList',
+        'action' => 'deleteSort',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Sort'
+    ],
 ];

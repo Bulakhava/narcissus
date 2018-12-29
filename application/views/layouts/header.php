@@ -40,7 +40,7 @@
           <?php if ($_SESSION and $_SESSION['id'] === 'admin'): ?>
             <a href="/admin/flowers-list"><i class="fas fa-tools" style="font-size: 20px;"></i></a>
           <?php endif; ?>
-            Привет, <?php echo $_SESSION['firstName']?></div>
+            Привет, <?php echo $_SESSION['first_name']?></div>
         <a href="/logout" class="btn exit">Выйти</a>
       </div>
 
@@ -77,7 +77,7 @@
 
      <div class="user nowrap">
         <div class="name"><span><i class="fas fa-user" style="font-size: 20px;"></i></span>
-            Привет, <?php echo $_SESSION['firstName']?></div>
+            Привет, <?php echo $_SESSION['first_name']?></div>
         <a href="/logout" class="btn exit">Выйти</a>
       </div>
 

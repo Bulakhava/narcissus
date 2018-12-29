@@ -14,7 +14,7 @@ function formValidation($form, $fields) {
           if (result.url) {
             window.location.href = result.url;
           } else {
-            createModal(result.message, result.status);
+            createModal(result.message, result.status, enableBtn);
           }
 
           if (result.status === 'success') {
@@ -24,6 +24,10 @@ function formValidation($form, $fields) {
       }
     });
   }
+}
+
+function enableBtn() {
+  $("button[type=submit]").removeAttr("disabled");
 }
 
 function startValidator($form, $fields, onSubmit) {
@@ -66,27 +70,6 @@ function sendForm($form, callback) {
 function resetForm($form) {
   deleteFile();
   $form.bootstrapValidator("resetForm", true);
-}
-
-function createModal(msg, status, callback) {
-  var body = $('body');
-  var modal = $('<div class="modal-overlay"><div class="modal slideInDown"><div class="modal-msg"><div class="modal-msg_text"></div><button class="modal-close butt butt-green">OK</button></div></div></div>');
-  modal.find('.modal-msg_text').text(msg);
-
-  if (status === 'error') {
-    modal.find('.modal-msg_text').addClass('error');
-  }
-
-  body.append(modal);
-  body.addClass('overflow');
-  modal.find('.modal-close').on('click', function () {
-    modal.remove();
-    body.removeClass('overflow');
-
-    if (callback) {
-      callback();
-    }
-  });
 }
 
 function deleteFile() {

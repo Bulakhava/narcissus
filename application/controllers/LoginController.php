@@ -15,7 +15,7 @@ class LoginController extends Controller {
 
              if($this->model->checkAdmin($email, $password)){
               	 $_SESSION['id'] = 'admin';
-              	 $_SESSION['firstName'] = 'Admin';
+              	 $_SESSION['first_name'] = 'Admin';
               	 $this->view->location('/admin/flowers-list');
               } else {
               	$resalt = $this->model->checkLogin($email, $password);
@@ -24,7 +24,7 @@ class LoginController extends Controller {
               		exit;
               	} else {
               		$_SESSION['id'] = $resalt['id'];
-              		$_SESSION['firstName'] = $resalt['firstName'];
+              		$_SESSION['first_name'] = $resalt['first_name'];
                     $this->view->location('/');
               	}
               }
@@ -36,7 +36,7 @@ class LoginController extends Controller {
 
       public function logoutAction(){
       	    unset($_SESSION["id"]);
-      	    unset($_SESSION["firstName"]);
+      	    unset($_SESSION["first_name"]);
             $this->view->redirect('login');
       }
 
