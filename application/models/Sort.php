@@ -52,5 +52,12 @@ class Sort extends Model
         return false;
     }
 
+    public function getSort($id){
+        $params = [
+            'id' => $id,
+        ];
+        return $this->db->row('SELECT * FROM sorts WHERE id = :id', $params);
+    }
+
 
 }

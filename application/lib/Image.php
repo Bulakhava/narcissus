@@ -20,7 +20,7 @@ class Image{
    }
 
 
-    public function checkFile(){
+   public function checkFile(){
 
    	 if(empty($this->img['tmp_name'])){
    	 	return ['message' => 'Изображение не выбрано', 'status' => 'error'];
@@ -48,6 +48,7 @@ class Image{
      move_uploaded_file($path, 'img/sorts/' . $id .'/' . $this->getImg()['name']);
 
 	}
+
 
 
 }

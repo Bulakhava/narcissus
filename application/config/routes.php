@@ -49,4 +49,10 @@ return [
         'folderCtrl' => 'admin\\',
         'model' => 'Sort'
     ],
+    'catalog/{id:\d+}' => [
+        'controller' => 'catalog',
+        'action' => 'catalog',
+        'folderCtrl' => '',
+        'model' => 'Sort'
+    ],
 ];
