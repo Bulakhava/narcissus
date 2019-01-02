@@ -51,10 +51,11 @@ function checkMatchPasswords() {
 }
 
 function sendForm($form, callback) {
+  var id = '#' + $form.attr('id');
   $.ajax({
     type: $form.attr('method'),
     url: $form.attr('action'),
-    data: new FormData(document.querySelector('form')),
+    data: new FormData(document.querySelector(id)),
     contentType: false,
     cache: false,
     processData: false,

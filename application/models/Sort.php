@@ -11,8 +11,8 @@ class Sort extends Model
     {
         $params = [
             'id' => 0,
-            'title' => $post['title'],
-            'text' => $post['text'],
+            'title' => trim($post['title']),
+            'text' => trim($post['text']),
             'date' => time(),
             'has_categories' => null
         ];
@@ -24,6 +24,21 @@ class Sort extends Model
         }
         return ['id' => $this->db->lastInsertId(), 'status' => 'success'];
 
+    }
+
+
+    public function editSort($post, $id){
+        $params = [
+            'id' => $id,
+            'title' => trim($post['title']),
+            'text' => trim($post['text']),
+        ];
+        $this->db->query('UPDATE sorts SET title = :title, text = :text WHERE id = :id', $params);
+        if ($this->db->getError_info()[1] === 1062) {
+            return ['message' => 'Сорт с таким названием уже существует', 'status' => 'error'];
+            exit;
+        }
+        return ['message' => 'Сорт отредактирован', 'status' => 'success'];
     }
 
 
@@ -41,7 +56,7 @@ class Sort extends Model
         $this->rmRec('img/sorts/' . $id);
     }
 
-    private function rmRec($path)
+    public function rmRec($path)
     {
         if (is_file($path)) return unlink($path);
         if (is_dir($path)) {

@@ -67,4 +67,10 @@ abstract class Controller
       return in_array($this->route['action'], $this->acl[$status]);
     }
 
+    protected function getImgPath($id){
+        $path = 'img/sorts/' . $id ;
+        $image = scandir($path, 1)[0];
+        return ('/' . $path . '/' . $image);
+    }
+
 }

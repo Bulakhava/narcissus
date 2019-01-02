@@ -9,9 +9,7 @@ class AddSortController extends AdminController {
 
      public function addSortAction() {
           
-         
           if (!empty($_POST)) {
-
 
               $image = new Image('file');
 
@@ -30,13 +28,9 @@ class AddSortController extends AdminController {
                          exit;
                      }  else{
                         
+                         $image->uploadSortImage($image->getImg()['tmp_name'], $add['id']);
 
-
-                           $image->uploadSortImage($image->getImg()['tmp_name'], $add['id']);
-
-
-
-                          $this->view->message('success', 'Сорт добавлен');
+                         $this->view->message('success', 'Сорт добавлен');
                      }
     
                }
@@ -44,8 +38,7 @@ class AddSortController extends AdminController {
 
       }
 
-
-    	$this->view->render('Добавить сорт',['page'=>'addSort']);
+      $this->view->render('Добавить сорт',['page'=>'addSort']);
 
      }
 }

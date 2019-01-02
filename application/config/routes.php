@@ -49,6 +49,18 @@ return [
         'folderCtrl' => 'admin\\',
         'model' => 'Sort'
     ],
+    'admin/edit-sort/{id:\d+}' => [
+        'controller' => 'editSort',
+        'action' => 'editSort',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Sort'
+    ],
+    'admin/change-img/{id:\d+}' => [
+        'controller' => 'editSort',
+        'action' => 'changeImg',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Sort'
+    ],
     'catalog/{id:\d+}' => [
         'controller' => 'catalog',
         'action' => 'catalog',

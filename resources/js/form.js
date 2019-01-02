@@ -57,10 +57,12 @@ function checkMatchPasswords() {
 
 function sendForm($form, callback) {
 
+    var id = '#' + $form.attr('id');
+
     $.ajax({
         type: $form.attr('method'),
         url: $form.attr('action'),
-        data: new FormData(document.querySelector('form')),
+        data: new FormData(document.querySelector(id)),
         contentType: false,
         cache: false,
         processData: false,
@@ -79,14 +81,11 @@ function resetForm($form) {
 
 }
 
-
-
 function deleteFile() {
     $('#fileToUpload').val("");
     // file = null;
     $('#file-name').hide().find('.text').text('').end().find('.file-size').text('');
 };
-
 
 $(function () {
 

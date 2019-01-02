@@ -18,8 +18,6 @@ class CatalogController extends Controller
 
         $sort = $this->model->getSort($id);
 
-       // $imgPath = $this->getImgPath($id);
-
         $this->view->render('Каталог', [
             'page' => 'catalog',
             'list' => $this->list,
@@ -42,13 +40,6 @@ class CatalogController extends Controller
         $key = array_search('Нарцисс', array_column($this->list, 'title'));
         $this->view->redirect( array_filter($tmp)[0] . '/' . $this->list[$key]['id']);
     }
-
-    private function getImgPath($id){
-        $path = 'img/sorts/' . $id ;
-        $image = scandir($path, 1)[0];
-        return ('/' . $path . '/' . $image);
-    }
-
 
 
 }
