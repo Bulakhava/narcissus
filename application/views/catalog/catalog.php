@@ -13,7 +13,7 @@
             </div>
 
             <div class="catalog_navigation">
-                <h2>Все сорта</h2>
+<!--                <h2>Все сорта</h2>-->
                 <ul>
 
 

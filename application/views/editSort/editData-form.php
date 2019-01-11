@@ -1,3 +1,6 @@
+<div class="form-wrapper">
+
+
 <form id="form-editSort" action="/admin/edit-sort/<?php echo $sort['id']; ?>" method="post" enctype="multipart/form-data">
 
     <div class="form-group">
@@ -17,6 +20,8 @@
     </div>
 
 </form>
+
+</div>
 
 <script>
 

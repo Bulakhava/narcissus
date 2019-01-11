@@ -82,20 +82,23 @@ function resetForm($form) {
 }
 
 function deleteFile() {
-    $('#fileToUpload').val("");
-    // file = null;
-    $('#file-name').hide().find('.text').text('').end().find('.file-size').text('');
+    var parent = $(this).parent().parent();
+    parent.find('.fileToUpload').val("");
+    parent.find('.file-name').hide().find('.text').text('').end().find('.file-size').text('');
 };
 
 $(function () {
 
     //   var file =null;
 
-    $('#fileToUpload').change(function (event) {
+    $('.fileToUpload').change(function (event) {
         var file = event.target.files[0];
         if (file && file.name) {
             if ((file.size / 1048576) < 10) {
-                addFileName(file);
+                var fileName = $(this).parent().find('.file-name');
+                fileName.show()
+                    .find('.text').text(file.name).end()
+                    .find('.file-size').text(`(${(Math.round(file.size / 1024 * 10)) / 10}) Kb`);
             } else {
                 // $('.file-requirements').removeClass('hidden');
             }
@@ -103,13 +106,8 @@ $(function () {
 
     });
 
-    function addFileName(file) {
-        $('#file-name').show()
-            .find('.text').text(file.name).end()
-            .find('.file-size').text(`(${(Math.round(file.size / 1024 * 10)) / 10}) Kb`);
-    }
 
-    $('#delete-file').on('click', deleteFile);
+    $('.delete-file').on('click', deleteFile);
 
 
 });

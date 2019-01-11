@@ -21,31 +21,54 @@ class EditSortController extends AdminController
             exit;
         }
 
+       // $this->getGalleryImgPath($id);
+
         $this->view->render('Редактировать сорт', [
             'page' => 'editSort',
             'sort' => $sort[0],
             'imgPath' => $this->getImgPath($id),
+            'galleryImg' => $this->getGalleryImgPath($id)
         ]);
 
     }
 
-    public function changeImgAction(){
+    public function changeImgAction()
+    {
 
-             $id = $this->getSortId();
-            $image = new Image('file');
-            $result = $image->checkFile();
+        $id = $this->getSortId();
+        $image = new Image('file');
+        $result = $image->checkFile();
 
 
-            if($result['status'] === 'error'){
-                $this->view->message('error', $result['message']);
+        if ($result['status'] === 'error') {
+            $this->view->message('error', $result['message']);
+            exit;
+
+        } else {
+            $this->model->rmRec('img/sorts/' . $id);
+            $image->uploadSortImage($image->getImg()['tmp_name'], $id);
+            $this->view->location('/admin/edit-sort/' . $id);
+        }
+
+    }
+
+    public function addGalleryImgAction()
+    {
+        $id = $this->getSortId();
+        $image = new Image('image');
+        $result = $image->checkFile();
+        if ($result['status'] === 'error') {
+            $this->view->message('error', $result['message']);
+            exit;
+        } else {
+            $addResalt = $image->addGalleryImage($image->getImg()['tmp_name'], $id);
+            if ($addResalt['status'] === 'error') {
+                $this->view->message('error', $addResalt['message']);
                 exit;
-
             } else {
-                $this->model->rmRec('img/sorts/' . $id);
-                $image->uploadSortImage($image->getImg()['tmp_name'], $id);
                 $this->view->location('/admin/edit-sort/' . $id);
             }
-
+        }
     }
 
     private function getSortId()

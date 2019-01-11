@@ -1,13 +1,6 @@
 @import "variables.scss";
 
-.edit_sort-form{
-  .user-form{
-    form{
-      padding-bottom: 30px;
-      border-bottom: 2px solid $blue-color;
-    }
-  }
-}
+
 
 .user-form{
   color:$title-color;
@@ -93,7 +86,7 @@
      align-items: center;
     &_changeImg{
       position: relative;
-      #file-name{
+      .file-name{
         position: absolute;
         left:-15px;
         bottom: -20px;
@@ -118,7 +111,7 @@
   }
 
 
-   #file-name{
+   .file-name{
     display: none;
     font-size: 13px;
     color:$gray-color;

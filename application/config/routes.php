@@ -31,6 +31,12 @@ return [
         'folderCtrl' => '',
         'model' => null
     ],
+    'catalog/{id:\d+}' => [
+        'controller' => 'catalog',
+        'action' => 'catalog',
+        'folderCtrl' => '',
+        'model' => 'Sort'
+    ],
     'admin/flowers-list' => [
         'controller' => 'flowersList',
         'action' => 'flowersList',
@@ -61,10 +67,11 @@ return [
         'folderCtrl' => 'admin\\',
         'model' => 'Sort'
     ],
-    'catalog/{id:\d+}' => [
-        'controller' => 'catalog',
-        'action' => 'catalog',
-        'folderCtrl' => '',
+    'admin/add-galleryImg/{id:\d+}' => [
+        'controller' => 'editSort',
+        'action' => 'addGalleryImg',
+        'folderCtrl' => 'admin\\',
         'model' => 'Sort'
     ],
+
 ];

@@ -73,4 +73,14 @@ abstract class Controller
         return ('/' . $path . '/' . $image);
     }
 
+    protected function getGalleryImgPath($id){
+        $path = 'img/sorts/' . $id . '/gallery';
+        $images = scandir($path );
+        $output = array_slice($images, 2);
+        foreach($output as $key => &$value) {// <-- here
+            $value = $path . '/' . $value;
+        }
+        return $output;
+    }
+
 }

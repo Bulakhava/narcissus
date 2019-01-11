@@ -1,3 +1,5 @@
+<div class="form-wrapper">
+
 <form id="form-changeImg" action="/admin/change-img/<?php echo $sort['id']; ?>" method="post" enctype="multipart/form-data">
 
                <div class="changeImg-content">
@@ -17,16 +19,15 @@
                         </label>
                         <input type="file"
                                name="file"
-                               id="fileToUpload">
+                               id="fileToUpload"
+                               class="fileToUpload">
 
 
-
-
-                        <div id="file-name" class="nowrap">
+                        <div id="file-name" class="nowrap file-name">
 
                             <span class="text"></span>
                             <span class="file-size gray"></span>
-                            <span class="delete" id="delete-file">
+                            <span class="delete delete-file" id="delete-file">
                         <svg version="1.1" id="Фигура_576_1_" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink"
                              x="0px" y="0px" viewBox="0 0 8 8" style="enable-background:new 0 0 8 8;"
@@ -48,7 +49,7 @@
                </div>
 
       </form>
-
+</div>
 
 <script>
 
