@@ -18,9 +18,31 @@ function createModal(msg, status, callback) {
             callback();
         }
     });
-
 }
 
+function createYesNoModal(text, callback) {
+
+    var body = $('body');
+    var modal = $('<div class="modal-overlay"><div class="modal slideInDown"><div class="modal-msg"><div class="modal-msg_text"></div><button class="modal-no butt butt-red">НЕТ</button><button class="modal-yes butt butt-green">ДА</button></div></div></div>');
+    modal.find('.modal-msg_text').text(text);
+
+
+    body.append(modal);
+    body.addClass('overflow');
+
+    modal.find('.modal-no').on('click', function () {
+        modal.remove();
+        body.removeClass('overflow');
+
+        });
+
+    modal.find('.modal-yes').on('click', function () {
+        modal.remove();
+        body.removeClass('overflow');
+        callback();
+
+    });
+}
 
 function deleteSort(e) {
     var target = $(e.currentTarget);

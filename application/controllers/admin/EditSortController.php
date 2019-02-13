@@ -21,7 +21,7 @@ class EditSortController extends AdminController
             exit;
         }
 
-       // $this->getGalleryImgPath($id);
+    //   print_r($this->getGalleryImgPath($id));
 
         $this->view->render('Редактировать сорт', [
             'page' => 'editSort',
@@ -39,13 +39,12 @@ class EditSortController extends AdminController
         $image = new Image('file');
         $result = $image->checkFile();
 
-
         if ($result['status'] === 'error') {
             $this->view->message('error', $result['message']);
             exit;
 
         } else {
-            $this->model->rmRec('img/sorts/' . $id);
+            $this->model->rmRec('img/sorts/' . $id . '/main');
             $image->uploadSortImage($image->getImg()['tmp_name'], $id);
             $this->view->location('/admin/edit-sort/' . $id);
         }
@@ -68,6 +67,14 @@ class EditSortController extends AdminController
             } else {
                 $this->view->location('/admin/edit-sort/' . $id);
             }
+        }
+    }
+
+    public function removeGalleryImgAction(){
+        if (!empty($_POST)) {
+            $path = json_decode($_POST['data'])->path;
+            unlink($path);
+            print_r('gfhgh');
         }
     }
 

@@ -74,4 +74,11 @@ return [
         'model' => 'Sort'
     ],
 
+    'admin/remove-galleryImg' => [
+        'controller' => 'editSort',
+        'action' => 'removeGalleryImg',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Sort'
+    ]
+
 ];

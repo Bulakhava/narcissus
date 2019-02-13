@@ -3,13 +3,11 @@
 .admin-layout{
     display: flex;
     padding-top: 80px;
-    
    &_side-panel{
    	width:22%;
     min-width: 250px;
    	padding-right: 100px;
      ul{
-     	padding:0;
      	list-style: none;
      	border: $gray-border;
      	padding:17px 17px 0 17px;
@@ -37,4 +35,22 @@
     width: 78%;
 }
 
+}
+
+@media(max-width:1100px){
+  .admin-layout{
+    flex-wrap: wrap;
+    padding-top: 10px;
+    &_side-panel{
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 30px;
+      ul{
+        display: inline-block;
+      }
+    }
+    &_content{
+      width: 100%;
+    }
+  }
 }

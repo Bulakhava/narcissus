@@ -45,11 +45,9 @@ class Image
 
     public function uploadSortImage($path, $id)
     {
-
-        mkdir('img/sorts/' . $id, 0777, true);
-        move_uploaded_file($path, 'img/sorts/' . $id . '/' . $this->getImg()['name']);
-
-    }
+        mkdir('img/sorts/' . $id . '/main', 0777, true);
+        move_uploaded_file($path, 'img/sorts/' . $id .'/main/' . $this->getImg()['name']);
+        }
 
 
     public function addGalleryImage($path, $id)

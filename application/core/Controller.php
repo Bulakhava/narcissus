@@ -68,19 +68,28 @@ abstract class Controller
     }
 
     protected function getImgPath($id){
-        $path = 'img/sorts/' . $id ;
+        $path = 'img/sorts/' . $id . '/main' ;
         $image = scandir($path, 1)[0];
-        return ('/' . $path . '/' . $image);
+         return ('/' . $path . '/' . $image);
     }
 
     protected function getGalleryImgPath($id){
-        $path = 'img/sorts/' . $id . '/gallery';
-        $images = scandir($path );
-        $output = array_slice($images, 2);
-        foreach($output as $key => &$value) {// <-- here
-            $value = $path . '/' . $value;
+
+            $path = 'img/sorts/' . $id . '/gallery';
+
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
         }
-        return $output;
+
+             $images = scandir($path);
+            $output = array_slice($images, 2);
+            foreach($output as $key => &$value) {
+                $value = $path . '/' . $value;
+            }
+
+            return $output;
+
+
     }
 
 }

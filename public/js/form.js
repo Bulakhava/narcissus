@@ -3,8 +3,6 @@
 var $window = $(window);
 
 function formValidation($form, $fields) {
-  console.log($fields);
-
   if ($form.length) {
     startValidator($form, $fields, function () {
       if ($form.find('.has-error').length) {} else {
@@ -81,7 +79,6 @@ function deleteFile() {
 
 ;
 $(function () {
-  //   var file =null;
   $('.fileToUpload').change(function (event) {
     var file = event.target.files[0];
 
@@ -94,4 +91,35 @@ $(function () {
     }
   });
   $('.delete-file').on('click', deleteFile);
+
+  function removeFile(path) {
+    var data = {
+      path: path
+    };
+    var pathData = new FormData();
+    pathData.append('data', JSON.stringify(data));
+    $.ajax({
+      type: 'POST',
+      url: '/admin/remove-galleryImg',
+      data: pathData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function success() {
+        setTimeout(function () {
+          location.reload();
+        }, 0);
+      },
+      error: function error(err) {
+        console.log(err);
+      }
+    });
+  }
+
+  $('.delete-file-from-galery').on('click', function () {
+    var path = $(this).data('img-src');
+    createYesNoModal('Вы действительно хотите удалить это изображение?', function () {
+      removeFile(path);
+    });
+  });
 });

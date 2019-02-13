@@ -1,11 +1,21 @@
 <div class="form-wrapper">
 
     <div class="imageList">
-        <?php foreach ($list as $val): ?>
+        <?php foreach ($galleryImg as $val): ?>
 
-            <li>
-                <a class="<?php echo ($val['id'] === $id) ? 'active' : ''; ?>" href="/catalog/<?php echo $val['id']; ?>"><?php echo htmlspecialchars($val['title'], ENT_QUOTES); ?></a>
-            </li>
+
+        <div class="imageList_item">
+            <img src="/<?php echo $val; ?>" alt="" width="100%">
+                      <div class="overcast">
+                              <div class="delete-file delete-file-from-galery" data-img-src="<?php echo $val; ?>">
+                                    <svg version="1.1" id="Фигура_576_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         x="0px" y="0px" viewBox="0 0 8 8" style="enable-background:new 0 0 8 8;" xml:space="preserve">
+                                        <g id="Фигура_576"><g><polygon class="st0" points="8,1.1 6.9,0 4,2.9 1.1,0 0,1.1 2.9,4 0,6.9 1.1,8 4,5.1 6.9,8 8,6.9 5.1,4"/></g></g>
+                                    </svg>
+                              </div>
+                      </div>
+        </div>
+
 
         <?php endforeach; ?>
     </div>

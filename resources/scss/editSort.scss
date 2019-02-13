@@ -16,9 +16,47 @@
 
 .edit_sort-form{
   .form-wrapper{
-
       padding-bottom: 30px;
       border-bottom: 2px solid $blue-color;
-
   }
+
+  .imageList{
+    display: flex;
+    flex-wrap: wrap;
+
+    &_item{
+      width: 25%;
+      padding: 15px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      .overcast{
+        position: absolute;
+        top:15px;
+        right: 15px;
+        bottom:18px;
+        left: 15px;
+        background-color: #000;
+        opacity: 0;
+        transition: opacity 0.2s;
+        &:hover{
+          opacity: 0.4;
+        }
+      }
+     .delete-file{
+       width: 20px;
+       height: 20px;
+       position: absolute;
+       top:5px;
+       right: 5px;
+       cursor: pointer;
+       svg{
+         width: 100%;
+         fill: #fff;
+       }
+     }
+    }
+  }
+
+
 }
