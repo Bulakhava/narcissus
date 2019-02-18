@@ -11,7 +11,15 @@ function formValidation($form, $fields) {
                     var result = JSON.parse(res);
 
                     if (result.url) {
-                        window.location.href = result.url;
+
+                        if (result.url === 'reload') {
+                            setTimeout(function () {
+                                location.reload();
+                            }, 0);
+                        } else {
+                            window.location.href = result.url;
+                        }
+
                     } else {
 
                         createModal(result.message, result.status, enableBtn);
@@ -135,6 +143,18 @@ $(function () {
         });
     });
 
+    function toggleForm() {
+        const id = $(this).data('id');
+        const forms = $('.editCategoryForm');
+        $.each(forms, function (i, el) {
+            if ($(el).attr('id') != id) {
+                $(el).slideUp();
+            }
+        });
+        $(`#${id}`).slideToggle();
+    }
+
+    $('.toggle-form').on('click', toggleForm);
 
 });
 

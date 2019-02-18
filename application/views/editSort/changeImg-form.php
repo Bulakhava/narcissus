@@ -12,7 +12,7 @@
 
                    <div class="fields">
 
-                    <div class="file-group file-group_changeImg">
+                    <div class="file-group file-group_changeImg" style="margin-bottom: 25px">
 
                         <label for="fileToUpload" class="addFile-label butt butt-green">
                             <span>Сменить изображение</span>

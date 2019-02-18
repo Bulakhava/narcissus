@@ -10,7 +10,13 @@ function formValidation($form, $fields) {
           var result = JSON.parse(res);
 
           if (result.url) {
-            window.location.href = result.url;
+            if (result.url === 'reload') {
+              setTimeout(function () {
+                location.reload();
+              }, 0);
+            } else {
+              window.location.href = result.url;
+            }
           } else {
             createModal(result.message, result.status, enableBtn);
           }
@@ -122,4 +128,17 @@ $(function () {
       removeFile(path);
     });
   });
+
+  function toggleForm() {
+    var id = $(this).data('id');
+    var forms = $('.editCategoryForm');
+    $.each(forms, function (i, el) {
+      if ($(el).attr('id') != id) {
+        $(el).slideUp();
+      }
+    });
+    $("#".concat(id)).slideToggle();
+  }
+
+  $('.toggle-form').on('click', toggleForm);
 });

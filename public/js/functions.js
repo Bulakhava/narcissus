@@ -54,6 +54,23 @@ function deleteSort(e) {
   });
 }
 
+function deleteCategory(e) {
+  var target = $(e.currentTarget);
+  confirmModal("\u0412\u044B \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u044E ".concat(target.data('name')), function () {
+    $.ajax({
+      url: '/admin/delete-category',
+      type: 'post',
+      data: {
+        id: target.attr('id'),
+        sort_id: target.data('sort-id')
+      },
+      success: function success() {
+        location.reload();
+      }
+    });
+  });
+}
+
 function confirmModal(msg, callback) {
   var body = $('body');
   var modal = $('<div class="modal-overlay"><div class="modal slideInDown"><div class="modal-msg"><div class="modal-msg_text"></div><button class="confirm butt butt-green">ДА</button><button class="modal-close butt butt-red">НЕТ</button></div></div></div>');

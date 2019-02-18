@@ -1,10 +1,11 @@
-<div class="form-wrapper">
+<div class="form-wrapper galleryImg_form-wrapper">
+
+    <h4 class="title-bg">Изображения галлереи</h4>
 
     <div class="imageList">
         <?php foreach ($galleryImg as $val): ?>
 
-
-        <div class="imageList_item">
+            <div class="imageList_item">
             <img src="/<?php echo $val; ?>" alt="" width="100%">
                       <div class="overcast">
                               <div class="delete-file delete-file-from-galery" data-img-src="<?php echo $val; ?>">
@@ -14,23 +15,21 @@
                                     </svg>
                               </div>
                       </div>
-        </div>
-
-
+                  </div>
         <?php endforeach; ?>
     </div>
 
-    <form id="form-addGalleryImg" action="/admin/add-galleryImg/<?php echo $sort['id']; ?>" method="post" enctype="multipart/form-data">
+    <form class="fx-buttons" id="form-addGalleryImg" action="/admin/add-galleryImg/<?php echo $sort['id']; ?>" method="post" enctype="multipart/form-data" style="margin: 30px 0 15px">
 
         <div class="file-group file-group_changeImg">
 
-            <label for="addGalleryImg" class="addFile-label butt butt-green">
+            <label for="addGalleryImg<?php echo $sort['id']; ?>" class="addFile-label butt butt-green">
                 <span>Добавить изображение</span>
             </label>
 
             <input type="file"
                    name="image"
-                   id="addGalleryImg"
+                   id="addGalleryImg<?php echo $sort['id']; ?>"
                    class="fileToUpload">
 
             <div class="file-name nowrap">

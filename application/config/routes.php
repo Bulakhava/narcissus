@@ -79,6 +79,24 @@ return [
         'action' => 'removeGalleryImg',
         'folderCtrl' => 'admin\\',
         'model' => 'Sort'
-    ]
+    ],
+    'admin/edit-sort-category/{id:\d+}' => [
+        'controller' => 'editSort',
+        'action' => 'addCategory',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Category'
+    ],
+    'admin/delete-category' => [
+        'controller' => 'editSort',
+        'action' => 'deleteCategory',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Category'
+    ],
+    'admin/add-category-img/{id:\d+}' => [
+        'controller' => 'editSort',
+        'action' => 'addImgCategory',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Category'
+    ],
 
 ];

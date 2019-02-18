@@ -16,6 +16,9 @@ return [
         'editSort',
         'changeImg',
         'addGalleryImg',
-        'removeGalleryImg'
+        'removeGalleryImg',
+        'addCategory',
+        'deleteCategory',
+        'addImgCategory'
     ]
 ];

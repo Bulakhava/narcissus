@@ -16,12 +16,8 @@
             <textarea name="text"></textarea>    
         </div>
 
-
-
-      <div class="file-group">
-
-
-               <label for="fileToUpload" class="addFile-label butt butt-green">
+        <div class="file-group">
+                   <label for="fileToUpload" class="addFile-label butt butt-green">
                         <span>Загрузить изображение</span>
                     </label>
                 <input type="file"

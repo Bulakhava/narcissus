@@ -56,22 +56,19 @@ class Sort extends Model
         $this->rmRec('img/sorts/' . $id);
     }
 
-    public function rmRec($path)
-    {
-        if (is_file($path)) return unlink($path);
-        if (is_dir($path)) {
-            foreach (scandir($path) as $p) if (($p != '.') && ($p != '..'))
-                $this->rmRec($path . DIRECTORY_SEPARATOR . $p);
-            return rmdir($path);
-        }
-        return false;
-    }
 
     public function getSort($id){
         $params = [
             'id' => $id,
         ];
         return $this->db->row('SELECT * FROM sorts WHERE id = :id', $params);
+    }
+
+    public function getCategories($id){
+        $params = [
+            'sort_id' => $id,
+        ];
+        return $this->db->row('SELECT * FROM categories WHERE sort_id = :sort_id', $params);
     }
 
 

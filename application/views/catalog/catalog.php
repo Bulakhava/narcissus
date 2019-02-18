@@ -8,14 +8,24 @@
                 <div class="image">
                     <img src="<?php echo $imgPath; ?>" alt="flower" width="100%">
                 </div>
+
+                <?php if ($galleryImg): ?>
+                <div class="button" style="margin: -15px 0 30px">
+                    <button class="butt butt-green">Фото<sup><?php echo  sizeof($galleryImg) ?></sup></button>
+                </div>
+                <?php endif ?>
+
                 <div class="text"><?php echo $sort['text']; ?></div>
+
+                <?php if ($galleryImg): ?>
+
+                <?php endif ?>
 
             </div>
 
             <div class="catalog_navigation">
-<!--                <h2>Все сорта</h2>-->
-                <ul>
 
+                <ul>
 
                     <?php foreach ($list as $val): ?>
 
@@ -24,7 +34,6 @@
                        </li>
 
                     <?php endforeach; ?>
-
 
                 </ul>
             </div>

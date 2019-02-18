@@ -1,9 +1,7 @@
 @import "variables.scss";
 
-
-
 .user-form{
-  color:$title-color;
+ // color:$title-color;
   width:400px;
   margin:70px auto;
 
@@ -68,7 +66,7 @@
 
   }
   .form-buttons{
-    margin-top:30px;
+   // margin-top:30px;
     a{
       float:right;
       color:$text-color;
@@ -79,9 +77,15 @@
     }
   }
 
+  .fx-buttons{
+    display: flex;
+    .file-group_changeImg{
+      margin-right: 15px;
+    }
+  }
 
   .file-group{
-    margin-top: 30px;
+   // margin-top: 30px;
      display: flex;
      align-items: center;
     &_changeImg{
@@ -89,7 +93,7 @@
       .file-name{
         position: absolute;
         left:-15px;
-        bottom: -20px;
+       bottom: -25px;
       }
     }
   }
@@ -136,12 +140,24 @@
       }
     }
   }
-
-
 }
 
+.editCategoryForm{
+  border-bottom: $gray-border;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
 
-
+@media(max-width:500px){
+  .user-form{
+    .fx-buttons{
+      display: block;
+      .file-group_changeImg{
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
 
 @media(max-width:480px){
 .user-form{

@@ -13,22 +13,24 @@ class CatalogController extends Controller
     {
 
         $this->list = $this->model->getSortsList();
-
         $id = $this->getSortId();
-
         $sort = $this->model->getSort($id);
+        $imagesGalDir = 'img/sorts/' . $id . '/gallery';
+        $categories = $this->model->getCategories($id);
 
         $this->view->render('Каталог', [
             'page' => 'catalog',
             'list' => $this->list,
             'sort' => $sort[0],
             'imgPath' => $this->getImgPath($id),
-            'id' => $id
+            'id' => $id,
+            'galleryImg' => $this->getGalleryImgPath($imagesGalDir),
+            'categories' => $categories
         ]);
 
     }
 
-    private function getSortId()
+    public function getSortId()
     {
         $tmp = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
         $page_path = end($tmp);

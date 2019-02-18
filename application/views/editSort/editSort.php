@@ -10,6 +10,8 @@
 
         <?php include 'galleryImg-form.php'?>
 
+        <?php include 'category-form.php'?>
+
     </div>
 
 

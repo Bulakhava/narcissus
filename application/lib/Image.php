@@ -68,6 +68,24 @@ class Image
             return ['message' => '', 'status' => 'success'];
         }
     }
+
+    public function addCategoryImage($path, $sort_id, $cat_id){
+        $dir = 'img/sorts/' . $sort_id . '/category';
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        $dir_cat = $dir . '/' . $cat_id;
+        if (!file_exists($dir_cat)) {
+            mkdir($dir_cat, 0777, true);
+        }
+        $image = $dir_cat . '/' . $this->getImg()['name'];
+        if (file_exists($image)) {
+            return ['message' => 'Такая картинка уже есть', 'status' => 'error'];
+        } else {
+            move_uploaded_file($path, $image);
+            return ['message' => '', 'status' => 'success'];
+        }
+    }
 }
 
 

@@ -58,6 +58,20 @@ function deleteSort(e) {
     });
 }
 
+function deleteCategory(e) {
+    var target = $(e.currentTarget);
+    confirmModal(`Вы действительно хотите удалить категорию ${target.data('name')}`, function () {
+        $.ajax({
+            url: '/admin/delete-category',
+            type: 'post',
+            data: {id : target.attr('id'), sort_id: target.data('sort-id')},
+            success: function() {
+                location.reload();
+            }
+        });
+    });
+}
+
 
 function confirmModal(msg, callback) {
     var body = $('body');

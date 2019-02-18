@@ -7,13 +7,19 @@ use application\lib\Image;
 
 class EditSortController extends AdminController
 {
-
-
     public function editSortAction()
     {
-
         $id = $this->getSortId();
         $sort = $this->model->getSort($id);
+        $imagesGalDir = 'img/sorts/' . $id . '/gallery';
+        $categories = $this->model->getCategories($id);
+
+        foreach($categories as &$val){
+             $path = 'img/sorts/' . $val['sort_id'] . '/category/' . $val['id'];
+             $val['images'] = $this->getGalleryImgPath($path);
+             }
+
+     //   print_r($categories);
 
         if (!empty($_POST)) {
             $result = $this->model->editSort($_POST, $id);
@@ -21,13 +27,12 @@ class EditSortController extends AdminController
             exit;
         }
 
-    //   print_r($this->getGalleryImgPath($id));
-
         $this->view->render('Редактировать сорт', [
             'page' => 'editSort',
             'sort' => $sort[0],
             'imgPath' => $this->getImgPath($id),
-            'galleryImg' => $this->getGalleryImgPath($id)
+            'galleryImg' => $this->getGalleryImgPath($imagesGalDir),
+            'categories' => $categories
         ]);
 
     }
@@ -65,12 +70,13 @@ class EditSortController extends AdminController
                 $this->view->message('error', $addResalt['message']);
                 exit;
             } else {
-                $this->view->location('/admin/edit-sort/' . $id);
+                $this->view->location('reload');
             }
         }
     }
 
-    public function removeGalleryImgAction(){
+    public function removeGalleryImgAction()
+    {
         if (!empty($_POST)) {
             $path = json_decode($_POST['data'])->path;
             unlink($path);
@@ -78,10 +84,51 @@ class EditSortController extends AdminController
         }
     }
 
-    private function getSortId()
+    public function addCategoryAction()
     {
-        $tmp = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-        return end($tmp);
+        if (!empty($_POST)) {
+            $_POST['sort_id'] = $this->getSortId();
+            $add = $this->model->categoryAdd($_POST);
+            if ($add['status'] === 'error') {
+                $this->view->message('error', $add['message']);
+                exit;
+            } else {
+                $this->view->location('/admin/edit-sort/' . $this->getSortId());
+            }
+        }
+    }
+
+    public function deleteCategoryAction()
+    {
+        if (!empty($_POST)) {
+            print_r($_POST);
+            $this->model->deleteCategory($_POST['id'], $_POST['sort_id']);
+            exit;
+        }
+    }
+
+    public function addImgCategoryAction()
+    {
+        $image = new Image('image');
+        $result = $image->checkFile();
+        $params = [
+            'sort_id' => $this->getSortId(),
+            'cat_id' => $this->getDataFromUrlParams('cat_id')
+        ];
+
+        if ($result['status'] === 'error') {
+            $this->view->message('error', $result['message']);
+            exit;
+        } else {
+            $addResalt = $image->addCategoryImage($image->getImg()['tmp_name'], $params['sort_id'], $params['cat_id']);
+            if ($addResalt['status'] === 'error') {
+                $this->view->message('error', $addResalt['message']);
+                exit;
+            } else {
+                $this->view->location('reload');
+            }
+        }
+
     }
 
 }
