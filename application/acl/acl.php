@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'authorized'=>['index','logout', 'catalog'],
-    'guest'=>['index', 'registration', 'confirm', 'login', 'catalog'],
+    'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery'],
+    'guest'=>['index', 'registration', 'confirm', 'login', 'catalog', 'getGalleryImg', 'gallery'],
     'admin'=>[
         'index',
         'registration',
@@ -19,6 +19,8 @@ return [
         'removeGalleryImg',
         'addCategory',
         'deleteCategory',
-        'addImgCategory'
+        'addImgCategory',
+        'getGalleryImg',
+        'gallery'
     ]
 ];

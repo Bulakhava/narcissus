@@ -6,7 +6,6 @@ var concatCss = require('gulp-concat-css');
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 
-
 gulp.task('scripts', function () {
     gulp.src('resources/js/*.js')
         .pipe(babel({

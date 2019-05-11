@@ -5,17 +5,14 @@
     <div class="title"><?php echo $title ?></div>
 
     <form id="form-addSort" action="/admin/add-sort" method="post" enctype="multipart/form-data">
-
         <div class="form-group">
             <label>Название</label>
             <input type="text" name="title">
         </div>
-
         <div class="form-group">
             <label>Текст</label>
             <textarea name="text"></textarea>    
         </div>
-
         <div class="file-group">
                    <label for="fileToUpload" class="addFile-label butt butt-green">
                         <span>Загрузить изображение</span>

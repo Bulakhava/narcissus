@@ -5,13 +5,9 @@ function formValidation($form, $fields) {
         startValidator($form, $fields, function () {
             if ($form.find('.has-error').length) {
             } else {
-
                 sendForm($form, function (res) {
-
                     var result = JSON.parse(res);
-
                     if (result.url) {
-
                         if (result.url === 'reload') {
                             setTimeout(function () {
                                 location.reload();

@@ -37,6 +37,18 @@ return [
         'folderCtrl' => '',
         'model' => 'Sort'
     ],
+    'gallery' => [
+        'controller' => 'gallery',
+        'action' => 'gallery',
+        'folderCtrl' => '',
+        'model' => 'Sort'
+    ],
+    'catalog/get-gallery-img' => [
+        'controller' => 'catalog',
+        'action' => 'getGalleryImg',
+        'folderCtrl' => '',
+        'model' => 'Sort'
+    ],
     'admin/flowers-list' => [
         'controller' => 'flowersList',
         'action' => 'flowersList',

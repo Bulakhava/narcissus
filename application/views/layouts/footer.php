@@ -9,13 +9,11 @@
                 <li><a href="#">Контакты</a></li>
             </ul>
         </nav>
-
         <div class="contact">
             <ul>
                 <li><a href="mailto:coronacia@mail.ru">Email: coronacia@mail.ru</a></li>
                 <li><a href="tel:+375296121209">Tel: +375 29 612 12 09</a></li>
             </ul>
         </div>
-
     </div>
 </footer>

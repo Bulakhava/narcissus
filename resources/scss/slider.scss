@@ -1,0 +1,34 @@
+@import "variables.scss";
+
+.galleria-overlay{
+  position: fixed;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  .galleria-close{
+    color: #fff;
+    padding: 15px;
+    right: 15px;
+    left: auto;
+    margin: -15px;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    line-height: 30px;
+    text-shadow: 0 0 2px #000;
+    opacity: .8;
+    z-index: 500;
+    font-family: sans-serif;
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+.galleria{
+  width: 100%;
+  height: 100%;
+}

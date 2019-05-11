@@ -14,4 +14,4 @@
     <script src="/public/js/functions.js"></script>
     <script src="/public/js/global.js"></script>
     <script src="/public/js/form.js"></script>
-</head>
+    <script src="/public/libraries/galleria-1.5.7.min.js"></script>

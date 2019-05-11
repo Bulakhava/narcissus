@@ -7,7 +7,7 @@
         <div class="navigation">
             <ul>
                 <li><a href="/catalog/888">каталог</a></li>
-                <li><a href="">галерея</a></li>
+                <li><a href="/gallery">галерея</a></li>
                 <li><a href="">статьи</a></li>
                 <li><a href="">контакты</a></li>
             </ul>

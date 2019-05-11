@@ -43,5 +43,15 @@ class CatalogController extends Controller
         $this->view->redirect( array_filter($tmp)[0] . '/' . $this->list[$key]['id']);
     }
 
+    public function getGalleryImgAction(){
+
+        if (!empty($_POST)) {
+            $path = 'img/sorts/' . $_POST['id'] . '/gallery';
+            $images = $this->getGalleryImgPath($path);
+            print_r(json_encode($images));
+        }
+
+
+    }
 
 }
