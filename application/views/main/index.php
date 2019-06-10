@@ -18,16 +18,16 @@
         <div class="links-container">
 
 
-           <a href="/" class="flex-item flex-item-blue">
+           <a href="/catalog/888" class="flex-item flex-item-blue">
                 <div class="link-item link-item-blue">
                     <div class="img">
                         <img src="/img/tickets.png" alt="tickets">
                     </div>
-                    <div class="title">Статьи</div>
+                    <div class="title">Каталог</div>
                 </div>
             </a>
 
-            <a href="/" class="flex-item flex-item-green">
+            <a href="/gallery" class="flex-item flex-item-green">
                 <div class="link-item link-item-green">
                     <div class="img">
                         <img src="/img/camera.png" alt="camera">
@@ -36,23 +36,23 @@
                 </div>
             </a>
 
-            <a href="#" class="flex-item flex-item-red">
-                <div class="link-item link-item-red">
-                    <div class="img">
-                        <img src="/img/beer.png" width="70" alt="beer">
-                    </div>
-                    <div class="title">Обо мне</div>
-                </div>
-            </a>
-
-            <a href="#" class="flex-item flex-item-orange">
-                <div class="link-item link-item-orange">
-                    <div class="img">
-                        <img src="/img/iPad.png" width="70" alt="iPad">
-                    </div>
-                    <div class="title">Контакты</div>
-                </div>
-            </a>
+<!--            <a href="#" class="flex-item flex-item-red">-->
+<!--                <div class="link-item link-item-red">-->
+<!--                    <div class="img">-->
+<!--                        <img src="/img/beer.png" width="70" alt="beer">-->
+<!--                    </div>-->
+<!--                    <div class="title">Обо мне</div>-->
+<!--                </div>-->
+<!--            </a>-->
+<!---->
+<!--            <a href="#" class="flex-item flex-item-orange">-->
+<!--                <div class="link-item link-item-orange">-->
+<!--                    <div class="img">-->
+<!--                        <img src="/img/iPad.png" width="70" alt="iPad">-->
+<!--                    </div>-->
+<!--                    <div class="title">Контакты</div>-->
+<!--                </div>-->
+<!--            </a>-->
 
         </div>
     </div>

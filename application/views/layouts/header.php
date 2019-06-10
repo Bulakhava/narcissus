@@ -8,8 +8,8 @@
             <ul>
                 <li><a href="/catalog/888">каталог</a></li>
                 <li><a href="/gallery">галерея</a></li>
-                <li><a href="">статьи</a></li>
-                <li><a href="">контакты</a></li>
+<!--                <li><a href="">статьи</a></li>-->
+<!--                <li><a href="">контакты</a></li>-->
             </ul>
         </div>
 
@@ -45,7 +45,6 @@
       </div>
 
 <?php endif; ?>
-
 
         <div class="burger">
             <a id="nav-toggle" href="#"><span></span></a>
@@ -84,7 +83,7 @@
      <?php endif; ?>
 
         <div class="mobile-menu_main">
-           <div class="mobile-menu_item"><a href="">каталог</a></div>     
+            <div class="mobile-menu_item"><a href="">каталог</a></div>
             <div class="mobile-menu_item"><a href="">галерея</a></div>   
             <div class="mobile-menu_item"><a href="">статьи</a></div>   
             <div class="mobile-menu_item"><a href="">контакты</a></div>   

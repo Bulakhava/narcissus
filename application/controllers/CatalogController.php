@@ -18,7 +18,7 @@ class CatalogController extends Controller
         $imagesGalDir = 'img/sorts/' . $id . '/gallery';
         $categories = $this->model->getCategories($id);
 
-        $this->view->render('Каталог', [
+        $this->view->render($sort[0]['title'], [
             'page' => 'catalog',
             'list' => $this->list,
             'sort' => $sort[0],
@@ -44,14 +44,11 @@ class CatalogController extends Controller
     }
 
     public function getGalleryImgAction(){
-
         if (!empty($_POST)) {
             $path = 'img/sorts/' . $_POST['id'] . '/gallery';
             $images = $this->getGalleryImgPath($path);
             print_r(json_encode($images));
         }
-
-
     }
 
 }
