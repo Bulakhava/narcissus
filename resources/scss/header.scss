@@ -53,8 +53,8 @@ header{
     font-size: 13px;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: 'Roboto';
-    font-weight: 800;
+   // font-family: 'Roboto';
+    font-weight: 600;
   }
   .header_wrapper{
     display: flex;
@@ -72,7 +72,7 @@ header{
     text-transform:none;
     font-weight: 400;
     .gray{
-      color:#3e3e3e;
+      color:#000;
     }
     .pink{
       color:$pink-text-color;
@@ -87,7 +87,7 @@ header{
       li{
         padding: 0 15px;
         a{
-          color:#3e3e3e;
+          color:#000;
           &:hover{
             color:$pink-color;
           }
@@ -96,8 +96,6 @@ header{
     }
   }
 }
-
-
 
 
 .user{
@@ -114,18 +112,18 @@ header{
   }
   .exit{
      background-color:$pink-color;
-      border-radius:7px;
-    margin-left:20px;
+      border-radius:4px;
+       margin-left:20px;
          font-size:11px;
           color:#fff;
-          padding:8px 20px;
+          padding:15px 30px;
           letter-spacing: 1px;
           text-transform: uppercase;
           text-decoration: none;
-          font-family: 'Roboto';
+          font-family: 'Montserrat', sans-serif;
           font-weight: 800;
            &:hover{
-          background-color:lighten($pink-color, 15%);
+          background-color:#ff253e;
         }
   }
   img{

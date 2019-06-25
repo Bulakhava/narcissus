@@ -5,8 +5,8 @@
                 <li><a href="/">Главная</a></li>
                 <li><a href="/catalog">Каталог</a></li>
                 <li><a href="/gallery">Гелерея</a></li>
-                <li><a href="/">Статьи</a></li>
-                <li><a href="#">Контакты</a></li>
+<!--                <li><a href="/">Статьи</a></li>-->
+<!--                <li><a href="#">Контакты</a></li>-->
             </ul>
         </nav>
         <div class="contact">

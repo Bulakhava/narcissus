@@ -18,23 +18,49 @@
         <div class="links-container">
 
 
-           <a href="/catalog/888" class="flex-item flex-item-blue">
-                <div class="link-item link-item-blue">
-                    <div class="img">
-                        <img src="/img/tickets.png" alt="tickets">
-                    </div>
-                    <div class="title">Каталог</div>
-                </div>
-            </a>
+            <?php foreach(    [
+                                   [
+                                       'title' => 'Каталог',
+                                       'text' => 'Описание садовых цветов',
+                                       'link' => '/catalog/888',
+                                       'pictLink' => '/img/catalog.jpg'
+                                   ],
+                                  [
+                                      'title' => 'Фото',
+                                      'text' => 'Фотографии садовых цветов',
+                                      'link' => '/gallery',
+                                      'pictLink' => '/img/foto.jpg'
+                                  ]
+                                ] as $link ) : ?>
+                <article class="article--index">
+                    <a class="article--index__image" href="<?php echo $link['link'] ?>">
+                        <div class="image">
+                            <img src="<?php echo $link['pictLink'] ?>" alt="">
+                        </div>
+                       <h2><?php echo $link['title'] ?></h2>
+                        <div class="text"><?php echo $link['text'] ?></div>
+                    </a>
+               </article>
+            <?php endforeach; ?>
 
-            <a href="/gallery" class="flex-item flex-item-green">
-                <div class="link-item link-item-green">
-                    <div class="img">
-                        <img src="/img/camera.png" alt="camera">
-                    </div>
-                    <div class="title">Фото</div>
-                </div>
-            </a>
+
+            <!--           <a href="/catalog/888" class="flex-item flex-item-blue">-->
+<!--                <div class="link-item link-item-blue">-->
+<!--                    <div class="img">-->
+<!--                        <img src="/img/tickets.png" alt="tickets">-->
+<!--                    </div>-->
+<!--                    <div class="title">Каталог</div>-->
+<!--                </div>-->
+<!--            </a>-->
+<!---->
+<!--            <a href="/gallery" class="flex-item flex-item-green">-->
+<!--                <div class="link-item link-item-green">-->
+<!--                    <div class="img">-->
+<!--                        <img src="/img/camera.png" alt="camera">-->
+<!--                    </div>-->
+<!--                    <div class="title">Фото</div>-->
+<!--                </div>-->
+<!--            </a>-->
 
 <!--            <a href="#" class="flex-item flex-item-red">-->
 <!--                <div class="link-item link-item-red">-->

@@ -3,20 +3,25 @@
 
         <?php foreach ($list as $val): ?>
 
-        <div class="gallery-item">
-            <div class="img">
-                <img src="<?php echo $val['imgSrc']; ?>" alt="" width="100%">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-image">
+                     <img class="card-img-top img-fluid" src="<?php echo $val['imgSrc']; ?>" alt="flower">
+                    </div>
+                    <div class="card-block">
+                        <div class="card-block-wrapper">
+                        <h4 class="card-title"><?php echo htmlspecialchars($val['title'], ENT_QUOTES); ?></h4>
+                        <div class="card-actions">
+                            <a class="butt butt-white" href="/catalog/<?php echo $val['id']; ?>">Описание</a>
+                            <?php if($val['galleryImgLength']): ?>
+                            <button class="butt butt-gradient open-slider" data-id="<?php echo $val['id']; ?>">фото <span class="number"><?php echo $val['galleryImgLength']; ?></span></button>
+                            <?php endif; ?>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="title">
-                <?php echo htmlspecialchars($val['title'], ENT_QUOTES); ?>
-            </div>
-            <div class="gallery-links">
-                <button class="butt butt-green open-slider" data-id="<?php echo $val['id']; ?>">Фото<sup><?php echo $val['galleryImgLength']; ?></sup></button>
-                <a class="butt butt-blue" href="/catalog/<?php echo $val['id']; ?>">
-                    Описание
-                </a>
-            </div>
-        </div>
 
         <?php endforeach; ?>
 

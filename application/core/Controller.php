@@ -20,7 +20,6 @@ abstract class Controller
         $this->view = new View($route);
         $this->model = $this->loadModel($route['controller']);
 
-
     }
 
     public function loadModel()
@@ -50,7 +49,6 @@ abstract class Controller
 
         // else $status = 'guest';
 
-
         if ($this->isAcl($status)) return true;
         else return false;
 
@@ -58,7 +56,6 @@ abstract class Controller
 
     public function isAcl($status)
     {
-
         return in_array($this->route['action'], $this->acl[$status]);
     }
 
