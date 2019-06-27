@@ -1,4 +1,4 @@
-<header class="top-navigation_fixed">
+<header class="top-navigation top-navigation_fixed">
     <div class="wrapper header_wrapper flex-container">
         <a class="logo nowrap" href="/">
             <span class="gray">Нарцисс</span> <span class="pink">и К</span>

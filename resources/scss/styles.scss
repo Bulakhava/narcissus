@@ -32,7 +32,6 @@ html, body{
 
 body{
   margin:0;
-  padding:90px 0 0;
   box-sizing: border-box;
   color: $text-color;
 }
@@ -43,6 +42,9 @@ body{
   display: flex;
   flex-direction:column;
   justify-content: space-between;
+  &.pT-105{
+    padding-top: 105px;
+  }
 }
 
 .wrapper{
@@ -183,7 +185,7 @@ h2{
 }
 
 .butt{
-  border-radius:4px;
+ // border-radius:4px;
   font-size:11px;
   padding:15px 30px;
   letter-spacing: 1px;

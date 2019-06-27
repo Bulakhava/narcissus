@@ -15,7 +15,7 @@
   }
   &_content{
     width: 80%;
-    padding-right: 80px;
+    padding-right: 50px;
     .fx-container{
       display: flex;
     }
@@ -37,24 +37,41 @@
       margin: 0;
       list-style: none;
       margin-top: 15px;
-      font-size: 18px;
-
+      font-size: 17px;
       li{
-        border-bottom: 1px solid #e9e9e9;
-        padding: 12px 0;
         a{
+          display: block;
           text-decoration: none;
           color: $text-color;
+          padding: 12px;
           &.active{
-            color:$blue-color;
+            background-color: $green-color;
+            color: #fff;
+            &:hover{
+              background-color: $green-color;
+              color: #fff;
+            }
           }
           &:hover{
-            color:$blue-color;
-            text-decoration: underline;
+            background-color: $light-bg-color;
+
           }
         }
       }
     }
+  }
+}
+
+
+
+
+@media(max-width:1100px){
+  .catalog_content{
+    padding-right: 30px;
+    width: 75%;
+  }
+  .catalog_navigation{
+    width: 25%;
   }
 }
 
@@ -93,7 +110,7 @@
     }
     &_navigation{
       order: 1;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       ul{
         display: flex;
         flex-wrap: wrap;
@@ -113,5 +130,68 @@
         margin: 40px 0 20px;
       }
     }
+  }
+}
+
+
+.card.card-gorisintal{
+  margin-left: 100px;
+  .card-body{
+    display: flex;
+    padding: 40px 0;
+
+  }
+  .card-image{
+    width: 30%;
+    position: relative;
+    img{
+      position: relative;
+      width: calc(100% + 100px);
+      left:-100px;
+    }
+  }
+  .card-block{
+    width: 70%;
+    padding-left: 30px;
+    padding-bottom: 0;
+  }
+  h4{
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .card-actions{
+    padding-top: 10px;
+    justify-content: flex-end;
+  }
+  .card-block-wrapper{
+    display: block;
+  }
+
+}
+
+@media(max-width: 850px){
+  .card.card-gorisintal{
+    margin-left: 0;
+    .card-body{
+      flex-wrap: wrap;
+      padding:0 0 30px;
+    }
+    .card-image{
+      width: 100%;
+      img{
+        position: static;
+        width: 100%;
+      }
+    }
+    .card-block{
+      width: 100%;
+    }
+  }
+}
+
+@media(max-width: 480px){
+  .card.card-gorisintal  .card-block{
+    padding-right: 20px;
+    padding-left:20px;
   }
 }

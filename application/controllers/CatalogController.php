@@ -4,6 +4,8 @@ namespace application\controllers;
 
 use application\core\Controller;
 
+//use application\models\Comment;
+
 class CatalogController extends Controller
 {
 
@@ -11,12 +13,12 @@ class CatalogController extends Controller
 
     public function catalogAction()
     {
-
         $this->list = $this->model->getSortsList();
         $id = $this->getSortId();
         $sort = $this->model->getSort($id);
         $imagesGalDir = 'img/sorts/' . $id . '/gallery';
         $categories = $this->model->getCategories($id);
+        $comments = $this->model->getComments($id);
 
         $this->view->render($sort[0]['title'], [
             'page' => 'catalog',
@@ -25,8 +27,11 @@ class CatalogController extends Controller
             'imgPath' => $this->getImgPath($id),
             'id' => $id,
             'galleryImg' => $this->getGalleryImgPath($imagesGalDir),
-            'categories' => $categories
+            'categories' => $categories,
+            'comments' => $comments
         ]);
+
+
 
     }
 

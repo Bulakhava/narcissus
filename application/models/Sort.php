@@ -44,7 +44,7 @@ class Sort extends Model
 
     public function getSortsList()
     {
-        return $this->db->row('SELECT id, title FROM sorts');
+        return $this->db->row('SELECT id, title FROM sorts ORDER BY title');
     }
 
     public function deleteSort($id)
@@ -55,7 +55,6 @@ class Sort extends Model
         $this->db->query('DELETE FROM sorts WHERE id = :id', $params);
         $this->rmRec('img/sorts/' . $id);
     }
-
 
     public function getSort($id){
         $params = [
@@ -69,6 +68,14 @@ class Sort extends Model
             'sort_id' => $id,
         ];
         return $this->db->row('SELECT * FROM categories WHERE sort_id = :sort_id', $params);
+    }
+
+
+    public function getComments($sortId){
+        $params = [
+            'sort_id' => $sortId,
+        ];
+        return $this->db->row('SELECT * FROM sort_comments WHERE sort_id = :sort_id ORDER BY time DESC', $params);
     }
 
 

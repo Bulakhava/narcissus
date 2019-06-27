@@ -2,7 +2,7 @@
 
 .user-form{
  // color:$title-color;
-  width:400px;
+  max-width:800px;
   margin:70px auto;
 
   .title{
@@ -14,37 +14,7 @@
     margin-bottom:10px;
     padding-bottom: 20px;
     position: relative;
-    .help-block{
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      color: $pink-color;
-      text-transform: uppercase;
-      font-size: 11px;
-    }
-    label, input,textarea{
-      display:block;
-      font-size:15px;
-      color: #8b8b8b;
-    }
-    input, textarea{
-      width:100%;
-      border: none;
-      border-bottom:1px solid #BFC3C5;
-      padding-bottom:9px;
-      padding-top: 9px;
-      border-radius:2px;
-      color:$text-color;
-      &:focus, &:active{
-        outline: none;
-      }
-      &.error{
-        border:1px solid $pink-color;
-      }
-    }
-    textarea{
-     // height:300px;
-    }
+
     label{
       display:inline-block;
       position: relative;
@@ -66,7 +36,6 @@
 
   }
   .form-buttons{
-   // margin-top:30px;
     a{
       float:right;
       color:$text-color;
@@ -85,7 +54,6 @@
   }
 
   .file-group{
-   // margin-top: 30px;
      display: flex;
      align-items: center;
     &_changeImg{
@@ -93,7 +61,7 @@
       .file-name{
         position: absolute;
         left:-15px;
-       bottom: -25px;
+        bottom: -25px;
       }
     }
   }
@@ -136,9 +104,38 @@
         svg{
           fill: $green-color;
         }
-
       }
     }
+  }
+}
+
+
+.help-block{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: $pink-color;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+label, input,textarea{
+  display:block;
+  font-size:15px;
+  color: #8b8b8b;
+}
+input, textarea{
+  width:100%;
+  border: none;
+  border-bottom:1px solid #BFC3C5;
+  padding-bottom:9px;
+  padding-top: 9px;
+  border-radius:2px;
+  color:$text-color;
+  &:focus, &:active{
+    outline: none;
+  }
+  &.error{
+    border:1px solid $pink-color;
   }
 }
 

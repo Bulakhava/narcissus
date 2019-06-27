@@ -1,13 +1,32 @@
 @import "variables.scss";
 
-.top-navigation_fixed{
-  position: fixed;
+.top-navigation{
   top:0;
   left: 0;
   right: 0;
   z-index: 100;
   box-shadow: $box-shadow;
-  animation: fixMenu 0.4s ease;
+  height: 90px;
+  &_fixed{
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    -webkit-animation: fixMenu .4s ease;
+    animation: fixMenu .4s ease;
+    height: 75px;
+  }
+}
+
+@keyframes fixMenu {
+  from {
+    top: -105px;
+  }
+  to {
+    top:0;
+  }
 }
 
 
@@ -19,7 +38,6 @@
       background-color:$pink-color;
       margin:0;
       padding:0;
-      border-radius:7px;
       overflow:hidden;
       li{
         &:hover{
@@ -29,7 +47,7 @@
           display: block;
           font-size:11px;
           color:#fff;
-          padding:8px 20px;
+          padding:15px 30px;
           letter-spacing: 1px;
           text-transform: uppercase;
           text-decoration: none;
@@ -47,20 +65,18 @@
 
 
 header{
-  height: 90px;
     background-color: #fff;
   a{
     font-size: 13px;
     text-transform: uppercase;
     text-decoration: none;
-   // font-family: 'Roboto';
     font-weight: 600;
   }
   .header_wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 100%;
   }
   .logo{
     width: 240px;
@@ -112,7 +128,7 @@ header{
   }
   .exit{
      background-color:$pink-color;
-      border-radius:4px;
+     // border-radius:4px;
        margin-left:20px;
          font-size:11px;
           color:#fff;

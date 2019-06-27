@@ -19,20 +19,22 @@
 
 
             <?php foreach(    [
-                                   [
+                                  [
                                        'title' => 'Каталог',
-                                       'text' => 'Описание садовых цветов',
+                                       'text' => 'Каталог с названиями, фотографиями, описанием, рекомендациями по уходу',
                                        'link' => '/catalog/888',
-                                       'pictLink' => '/img/catalog.jpg'
+                                       'pictLink' => '/img/catalog.jpg',
+                                       'delay' => '0s'
                                    ],
                                   [
                                       'title' => 'Фото',
-                                      'text' => 'Фотографии садовых цветов',
+                                      'text' => 'Фотографии с названиями наиболее популярных видов садовых цветов ',
                                       'link' => '/gallery',
-                                      'pictLink' => '/img/foto.jpg'
+                                      'pictLink' => '/img/foto.jpg',
+                                      'delay' => '0.2s'
                                   ]
                                 ] as $link ) : ?>
-                <article class="article--index">
+                <article class="article--index wow slideInUp"  data-wow-delay="<?php echo $link['delay'] ?>">
                     <a class="article--index__image" href="<?php echo $link['link'] ?>">
                         <div class="image">
                             <img src="<?php echo $link['pictLink'] ?>" alt="">

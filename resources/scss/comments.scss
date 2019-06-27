@@ -1,0 +1,59 @@
+@import "variables.scss";
+
+.comments{
+  margin-top: 60px;
+  .comments-list-item{
+    padding: 8px 15px;
+    background-color: $light-bg-color;
+    margin-bottom: 15px;
+  }
+  .name-date{
+    font-size: 14px;
+   margin-bottom: 5px;
+    font-weight: 600;
+    .name{
+      color:#000;
+
+    }
+    .date{
+      color: $green-color;
+    }
+  }
+  .add-comment{
+    margin-bottom: 30px;
+  }
+}
+
+#comment-form{
+  display: flex;
+  .form-group{
+    flex-grow: 1;
+    margin-right: 25px;
+  }
+  input{
+    display: block;
+    width: calc(100% - 30px);
+    border: none;
+    border-bottom: 1px solid #BFC3C5;
+    padding: 15px;
+    color:$text-color;
+    font-family: 'Montserrat', sans-serif;
+    &:focus, &:active{
+      outline: none;
+    }
+  }
+  .help-block{
+    bottom: -20px;
+    font-size: 8px;
+    padding-left: 15px;
+  }
+}
+
+@media(max-width:600px){
+  #comment-form{
+    display: block;
+    input{
+      margin: 0 30px 30px 0;
+    }
+  }
+}
