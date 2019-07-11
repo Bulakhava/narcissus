@@ -5,7 +5,7 @@ return [
         'controller' => 'main',
         'action' => 'index',
         'folderCtrl' => '',
-        'model' => null
+        'model' => 'Post'
     ],
     'registration' => [
         'controller' => 'registration',

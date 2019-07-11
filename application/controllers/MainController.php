@@ -7,8 +7,18 @@ use application\core\Controller;
 class MainController extends Controller
 
 {
+
+    private $list;
+
     public function indexAction()
     {
-        $this->view->render('Главная страница');
+        $this->list = $this->model->getPostsList();
+        foreach ($this->list as &$item) {
+            $item['imgSrc'] = $this->getImgPostPath($item['id']);
+        }
+
+        $this->view->render('Нарцисс и К', [
+            'list' => $this->list
+        ]);
     }
 }
