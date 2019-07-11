@@ -18,7 +18,7 @@
         </div>
 
          <div class="form-buttons">
-            <button class="butt butt-blue" type="submit">Войти</button>
+            <button class="butt butt-white" type="submit">Войти</button>
         </div>
 
     </form>

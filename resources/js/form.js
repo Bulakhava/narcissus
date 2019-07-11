@@ -6,6 +6,7 @@ function formValidation($form, $fields) {
             if ($form.find('.has-error').length) {
             } else {
                 sendForm($form, function (res) {
+                    console.log(res);
                     var result = JSON.parse(res);
                     if (result.url) {
                         if (result.url === 'reload') {

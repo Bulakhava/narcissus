@@ -66,6 +66,13 @@ abstract class Controller
         return ('/' . $path . '/' . $image);
     }
 
+    protected function getImgPostPath($id)
+    {
+        $path = 'img/posts/' . $id;
+        $image = scandir($path, 1)[0];
+        return ('/' . $path . '/' . $image);
+    }
+
     protected function getGalleryImgPath($path)
     {
 
@@ -83,11 +90,13 @@ abstract class Controller
         return $output;
     }
 
-    protected function getSortId()
+    protected function getIdFromUrl()
     {
         $tmp = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
         return end($tmp);
     }
+
+
 
     protected function getDataFromUrlParams($str)
     {
@@ -97,3 +106,4 @@ abstract class Controller
     }
 
 }
+

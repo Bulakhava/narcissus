@@ -13,7 +13,7 @@ class CommentController extends Controller {
             $params = [
                 'text' => $_POST['comment'],
                 'userId' => $_SESSION['id'],
-                'sortId' => $this-> getSortId()
+                'sortId' => $this-> getIdFromUrl()
 
             ];
 
@@ -28,6 +28,14 @@ class CommentController extends Controller {
 
         }
 
+    }
+
+    public function deleteSortCommentAction()
+    {
+        if (!empty($_POST)) {
+            $this->model->deleteSortComment($_POST['id']);
+            exit;
+        }
     }
 
 

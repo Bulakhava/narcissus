@@ -14,11 +14,11 @@ class Comment extends Model
              'user_id' => $params['userId'],
              'sort_id' => $params['sortId'],
              'user_full_name' =>  $this -> getFullUserName($params['userId']),
-             'date_comment' => date("d.m.Y"),
+//             'date_comment' => date("d.m.Y"),
              'time' => time(),
         ];
 
-        $this->db->query('INSERT INTO sort_comments VALUES (:id, :text, :user_id, :sort_id, :user_full_name, :date_comment, :time)', $comment);
+        $this->db->query('INSERT INTO sort_comments VALUES (:id, :text, :user_id, :sort_id, :user_full_name, :time)', $comment);
         return ['id' => $this->db->lastInsertId(), 'status' => 'success'];
 
     }
@@ -31,6 +31,13 @@ class Comment extends Model
         return ucfirst($user['first_name']) . ' ' . ucfirst($user['last_name']);
     }
 
+    public function deleteSortComment($id)
+    {
+        $params = [
+            'id' => $id,
+        ];
+        $this->db->query('DELETE FROM sort_comments WHERE id = :id', $params);
+    }
 
 
 }

@@ -7,6 +7,7 @@ function formValidation($form, $fields) {
     startValidator($form, $fields, function () {
       if ($form.find('.has-error').length) {} else {
         sendForm($form, function (res) {
+          console.log(res);
           var result = JSON.parse(res);
 
           if (result.url) {

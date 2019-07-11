@@ -4,8 +4,6 @@ namespace application\controllers;
 
 use application\core\Controller;
 
-//use application\models\Comment;
-
 class CatalogController extends Controller
 {
 
@@ -14,12 +12,14 @@ class CatalogController extends Controller
     public function catalogAction()
     {
         $this->list = $this->model->getSortsList();
-        $id = $this->getSortId();
+        $id = $this->getIdFromUrl();
         $sort = $this->model->getSort($id);
         $imagesGalDir = 'img/sorts/' . $id . '/gallery';
         $categories = $this->model->getCategories($id);
         $comments = $this->model->getComments($id);
-
+        foreach ($comments as &$value) {
+            $value['date_comment'] = date( 'd.m.Y',$value['time']);
+        }
         $this->view->render($sort[0]['title'], [
             'page' => 'catalog',
             'list' => $this->list,
@@ -30,12 +30,9 @@ class CatalogController extends Controller
             'categories' => $categories,
             'comments' => $comments
         ]);
-
-
-
     }
 
-    public function getSortId()
+    public function getIdFromUrl()
     {
         $tmp = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
         $page_path = end($tmp);

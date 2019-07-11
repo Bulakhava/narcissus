@@ -110,5 +110,46 @@ return [
         'folderCtrl' => 'admin\\',
         'model' => 'Category'
     ],
-
+    'add-sort-comment/{id:\d+}' => [
+        'controller' => 'comment',
+        'action' => 'addSortComment',
+        'folderCtrl' => '',
+        'model' => 'Comment'
+    ],
+    'delete-sort-comment' => [
+        'controller' => 'comment',
+        'action' => 'deleteSortComment',
+        'folderCtrl' => '',
+        'model' => 'Comment'
+    ],
+    'admin/add-post' => [
+        'controller' => 'addPost',
+        'action' => 'addPost',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Post'
+    ],
+    'admin/posts-list' => [
+        'controller' => 'postsList',
+        'action' => 'postsList',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Post'
+    ],
+    'admin/delete-post' => [
+        'controller' => 'postsList',
+        'action' => 'deletePost',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Post'
+    ],
+    'admin/edit-post/{id:\d+}' => [
+        'controller' => 'editPost',
+        'action' => 'editPost',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Post'
+    ],
+    'admin/change-post-img/{id:\d+}' => [
+        'controller' => 'editPost',
+        'action' => 'changePostImg',
+        'folderCtrl' => 'admin\\',
+        'model' => 'Post'
+    ],
 ];

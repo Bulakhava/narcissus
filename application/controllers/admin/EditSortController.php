@@ -9,7 +9,7 @@ class EditSortController extends AdminController
 {
     public function editSortAction()
     {
-        $id = $this->getSortId();
+        $id = $this->getIdFromUrl();
         $sort = $this->model->getSort($id);
         $imagesGalDir = 'img/sorts/' . $id . '/gallery';
         $categories = $this->model->getCategories($id);
@@ -19,7 +19,6 @@ class EditSortController extends AdminController
              $val['images'] = $this->getGalleryImgPath($path);
              }
 
-     //   print_r($categories);
 
         if (!empty($_POST)) {
             $result = $this->model->editSort($_POST, $id);
@@ -40,7 +39,7 @@ class EditSortController extends AdminController
     public function changeImgAction()
     {
 
-        $id = $this->getSortId();
+        $id = $this->getIdFromUrl();
         $image = new Image('file');
         $result = $image->checkFile();
 
@@ -58,7 +57,7 @@ class EditSortController extends AdminController
 
     public function addGalleryImgAction()
     {
-        $id = $this->getSortId();
+        $id = $this->getIdFromUrl();
         $image = new Image('image');
         $result = $image->checkFile();
         if ($result['status'] === 'error') {
@@ -87,13 +86,13 @@ class EditSortController extends AdminController
     public function addCategoryAction()
     {
         if (!empty($_POST)) {
-            $_POST['sort_id'] = $this->getSortId();
+            $_POST['sort_id'] = $this->getIdFromUrl();
             $add = $this->model->categoryAdd($_POST);
             if ($add['status'] === 'error') {
                 $this->view->message('error', $add['message']);
                 exit;
             } else {
-                $this->view->location('/admin/edit-sort/' . $this->getSortId());
+                $this->view->location('/admin/edit-sort/' . $this->getIdFromUrl());
             }
         }
     }
@@ -112,7 +111,7 @@ class EditSortController extends AdminController
         $image = new Image('image');
         $result = $image->checkFile();
         $params = [
-            'sort_id' => $this->getSortId(),
+            'sort_id' => $this->getIdFromUrl(),
             'cat_id' => $this->getDataFromUrlParams('cat_id')
         ];
 

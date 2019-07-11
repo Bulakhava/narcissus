@@ -52,7 +52,21 @@ function deleteSort(e) {
             type: 'post',
             data: {id : target.attr('id')},
             success: function() {
-                location.reload();
+              location.reload();
+            }
+        });
+    });
+}
+
+function deletePost(e) {
+    var target = $(e.currentTarget);
+    confirmModal(`Вы действительно хотите удалить статью ${target.data('name')}`, function () {
+        $.ajax({
+            url: '/admin/delete-post',
+            type: 'post',
+            data: {id : target.attr('id')},
+            success: function() {
+                 location.reload();
             }
         });
     });
@@ -75,7 +89,7 @@ function deleteCategory(e) {
 
 function confirmModal(msg, callback) {
     var body = $('body');
-    var modal = $('<div class="modal-overlay"><div class="modal slideInDown"><div class="modal-msg"><div class="modal-msg_text"></div><button class="confirm butt butt-green">ДА</button><button class="modal-close butt butt-red">НЕТ</button></div></div></div>');
+    var modal = $('<div class="modal-overlay"><div class="modal slideInDown"><div class="modal-msg"><div class="modal-msg_text"></div><button class="confirm butt butt-white">ДА</button><button class="modal-close butt butt-red">НЕТ</button></div></div></div>');
     modal.find('.modal-msg_text').text(msg);
     body.append(modal);
     body.addClass('overflow');
@@ -94,3 +108,23 @@ function confirmModal(msg, callback) {
         closeModal();
     });
 }
+
+function deleteComment() {
+    const id = $(this).data('id');
+    confirmModal('Вы действительно хотите удалить комментарий ?', function () {
+        $.ajax({
+            url: '/delete-sort-comment',
+            type: 'post',
+            data: {id: id},
+            success: function() {
+              location.reload();
+            }
+        });
+    });
+}
+
+$(function () {
+    $('.comment-delete').on('click', deleteComment);
+});
+
+

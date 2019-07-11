@@ -6,6 +6,7 @@
     padding: 8px 15px;
     background-color: $light-bg-color;
     margin-bottom: 15px;
+    position: relative;
   }
   .name-date{
     font-size: 14px;
@@ -21,6 +22,14 @@
   }
   .add-comment{
     margin-bottom: 30px;
+  }
+  .comment-delete{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    transform: rotate(45deg);
+    font-size: 30px;
+    cursor: pointer;
   }
 }
 

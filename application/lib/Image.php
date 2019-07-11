@@ -50,6 +50,13 @@ class Image
         }
 
 
+    public function uploadPostImage($path, $id)
+    {
+        mkdir('img/posts/' . $id , 0777, true);
+        move_uploaded_file($path, 'img/posts/' . $id .'/' . $this->getImg()['name']);
+    }
+
+
     public function addGalleryImage($path, $id)
     {
 

@@ -18,6 +18,9 @@
                   <span class="name"><?php echo $val['user_full_name']; ?></span> <span class="date"><?php echo $val['date_comment'] ; ?></span>
               </div>
               <div class="comment-text"><?php echo $val['text']; ?></div>
+                <?php if ($_SESSION and $_SESSION['id'] === 'admin'): ?>
+                <div class="comment-delete" data-id="<?php echo $val['id']; ?>">+</div>
+                <?php endif; ?>
           </div>
         <?php endforeach; ?>
     </div>

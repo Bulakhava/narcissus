@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery'],
+    'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery', 'addSortComment'],
     'guest'=>['index', 'registration', 'confirm', 'login', 'catalog', 'getGalleryImg', 'gallery'],
     'admin'=>[
         'index',
@@ -21,6 +21,13 @@ return [
         'deleteCategory',
         'addImgCategory',
         'getGalleryImg',
-        'gallery'
+        'gallery',
+        'addSortComment',
+        'deleteSortComment',
+        'addPost',
+        'postsList',
+        'deletePost',
+        'editPost',
+        'changePostImg'
     ]
 ];

@@ -6,7 +6,10 @@
   right: 0;
   z-index: 100;
   box-shadow: $box-shadow;
-  height: 90px;
+  height: 75px;
+  position: fixed;
+  background-color: #fff;
+
   &_fixed{
     position: fixed;
     background-color: #fff;
@@ -14,8 +17,8 @@
     left: 0;
     right: 0;
     z-index: 100;
-    -webkit-animation: fixMenu .4s ease;
-    animation: fixMenu .4s ease;
+  //  -webkit-animation: fixMenu .4s ease;
+  //  animation: fixMenu .4s ease;
     height: 75px;
   }
 }
@@ -41,7 +44,7 @@
       overflow:hidden;
       li{
         &:hover{
-          background-color:lighten($pink-color, 15%);
+          background-color:#ff253e;
         }
         a{
           display: block;
@@ -126,22 +129,7 @@ header{
       margin-right: 10px;
      }
   }
-  .exit{
-     background-color:$pink-color;
-     // border-radius:4px;
-       margin-left:20px;
-         font-size:11px;
-          color:#fff;
-          padding:15px 30px;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          text-decoration: none;
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 800;
-           &:hover{
-          background-color:#ff253e;
-        }
-  }
+
   img{
     vertical-align:bottom;
     margin-right:3px;

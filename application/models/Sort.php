@@ -13,11 +13,10 @@ class Sort extends Model
             'id' => 0,
             'title' => trim($post['title']),
             'text' => trim($post['text']),
-            'date' => time(),
-            'has_categories' => null
+            'date' => time()
         ];
 
-        $this->db->query('INSERT INTO sorts VALUES (:id, :title, :text, :date, :has_categories)', $params);
+        $this->db->query('INSERT INTO sorts VALUES (:id, :title, :text, :date)', $params);
         if ($this->db->getError_info()[1] === 1062) {
             return ['message' => 'Сорт с таким названием уже существует', 'status' => 'error'];
             exit;

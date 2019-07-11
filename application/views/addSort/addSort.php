@@ -1,6 +1,6 @@
 <section class="sort-form">
 
-<div class="user-form">
+<div class="user-form" style="margin-left: auto; margin-right: auto">
 
     <div class="title"><?php echo $title ?></div>
 
@@ -14,7 +14,7 @@
             <textarea name="text"></textarea>    
         </div>
         <div class="file-group">
-                   <label for="fileToUpload" class="addFile-label butt butt-green">
+                   <label for="fileToUpload" class="addFile-label butt butt-gradient">
                         <span>Загрузить изображение</span>
                     </label>
                 <input type="file"
@@ -36,7 +36,7 @@
              </div>
 
 
-         <div class="form-buttons">
+         <div class="form-buttons" style="margin-top: 20px">
             <button class="butt butt-blue" type="submit">Сохранить</button>
         </div>
 

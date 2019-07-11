@@ -23,7 +23,7 @@
 
         <div class="file-group file-group_changeImg">
 
-            <label for="addGalleryImg<?php echo $sort['id']; ?>" class="addFile-label butt butt-green">
+            <label for="addGalleryImg<?php echo $sort['id']; ?>" class="addFile-label butt butt-gradient">
                 <span>Добавить изображение</span>
             </label>
 

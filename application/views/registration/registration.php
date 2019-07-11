@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-buttons">
-            <button class="butt butt-blue" type="submit">Отправить</button>
+            <button class="butt butt-white" type="submit">Отправить</button>
         </div>
 
     </form>

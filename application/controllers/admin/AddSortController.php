@@ -27,9 +27,7 @@ class AddSortController extends AdminController {
                          $this->view->message('error', $add['message']);
                          exit;
                      }  else{
-                        
                          $image->uploadSortImage($image->getImg()['tmp_name'], $add['id']);
-
                          $this->view->message('success', 'Сорт добавлен');
                      }
     
