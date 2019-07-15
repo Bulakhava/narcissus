@@ -109,22 +109,32 @@ function confirmModal(msg, callback) {
     });
 }
 
-function deleteComment() {
-    const id = $(this).data('id');
+function deleteComment(e, url) {
+    const id = $(e.target).data('id');
     confirmModal('Вы действительно хотите удалить комментарий ?', function () {
         $.ajax({
-            url: '/delete-sort-comment',
+            url: url,
             type: 'post',
             data: {id: id},
             success: function() {
-              location.reload();
+               location.reload();
             }
         });
     });
 }
 
 $(function () {
-    $('.comment-delete').on('click', deleteComment);
+
+
+    $('.sort-comment-delete').on('click', function (e) {
+        deleteComment(e, '/delete-sort-comment');
+    });
+
+    $('.post-comment-delete').on('click', function (e) {
+        deleteComment(e, '/delete-post-comment');
+    });
+
+
 });
 
 

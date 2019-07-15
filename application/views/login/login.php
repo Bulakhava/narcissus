@@ -28,13 +28,9 @@
 
 
 <script>
-
-
-   $(function () {
-
-       var fields = {
-            
-                email: {
+    $(function () {
+        var fields = {
+            email: {
                     trigger: 'keyup blur',
                     validators: {
                         notEmpty: {
@@ -50,12 +46,8 @@
                         }
                     }
                 }
-
-            };
-
-     formValidation($('#form-login'), fields);
+         };
+        formValidation($('#form-login'), fields);
 });
-
-
 </script>
 

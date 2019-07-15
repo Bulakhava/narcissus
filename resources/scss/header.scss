@@ -17,8 +17,6 @@
     left: 0;
     right: 0;
     z-index: 100;
-  //  -webkit-animation: fixMenu .4s ease;
-  //  animation: fixMenu .4s ease;
     height: 75px;
   }
 }
@@ -96,7 +94,15 @@ header{
     .pink{
       color:$pink-text-color;
     }
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+     font-family: 'Montserrat', sans-serif;
+    }
+
+
   }
+
+
 
   .navigation{
     flex-grow: 1;

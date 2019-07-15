@@ -15,16 +15,13 @@ class Sort extends Model
             'text' => trim($post['text']),
             'date' => time()
         ];
-
         $this->db->query('INSERT INTO sorts VALUES (:id, :title, :text, :date)', $params);
         if ($this->db->getError_info()[1] === 1062) {
             return ['message' => 'Сорт с таким названием уже существует', 'status' => 'error'];
             exit;
         }
         return ['id' => $this->db->lastInsertId(), 'status' => 'success'];
-
     }
-
 
     public function editSort($post, $id){
         $params = [
@@ -52,6 +49,7 @@ class Sort extends Model
             'id' => $id,
         ];
         $this->db->query('DELETE FROM sorts WHERE id = :id', $params);
+        $this->db->query('DELETE FROM sort_comments WHERE sort_id = :id', $params);
         $this->rmRec('img/sorts/' . $id);
     }
 
@@ -68,7 +66,6 @@ class Sort extends Model
         ];
         return $this->db->row('SELECT * FROM categories WHERE sort_id = :sort_id', $params);
     }
-
 
     public function getComments($sortId){
         $params = [

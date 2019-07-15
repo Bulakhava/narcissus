@@ -28,6 +28,9 @@
 
 html, body{
   height: 100%;
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    height: auto;
+  }
 }
 
 body{
@@ -43,9 +46,10 @@ body{
   flex-direction:column;
   justify-content: space-between;
   padding-top: 75px;
-  &.pT-105{
-
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    height: auto;
   }
+
 }
 
 .wrapper{

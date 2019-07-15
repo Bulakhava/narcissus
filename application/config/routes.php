@@ -152,4 +152,28 @@ return [
         'folderCtrl' => 'admin\\',
         'model' => 'Post'
     ],
+    'post/{id:\d+}' => [
+        'controller' => 'post',
+        'action' => 'post',
+        'folderCtrl' => '',
+        'model' => 'Post'
+    ],
+    'add-post-comment/{id:\d+}' => [
+        'controller' => 'comment',
+        'action' => 'addPostComment',
+        'folderCtrl' => '',
+        'model' => 'Comment'
+    ],
+    'delete-post-comment' => [
+        'controller' => 'comment',
+        'action' => 'deletePostComment',
+        'folderCtrl' => '',
+        'model' => 'Comment'
+    ],
+    'contacts' => [
+        'controller' => 'contacts',
+        'action' => 'contacts',
+        'folderCtrl' => '',
+        'model' => null
+    ],
 ];

@@ -108,11 +108,11 @@ function confirmModal(msg, callback) {
   });
 }
 
-function deleteComment() {
-  var id = $(this).data('id');
+function deleteComment(e, url) {
+  var id = $(e.target).data('id');
   confirmModal('Вы действительно хотите удалить комментарий ?', function () {
     $.ajax({
-      url: '/delete-sort-comment',
+      url: url,
       type: 'post',
       data: {
         id: id
@@ -125,5 +125,10 @@ function deleteComment() {
 }
 
 $(function () {
-  $('.comment-delete').on('click', deleteComment);
+  $('.sort-comment-delete').on('click', function (e) {
+    deleteComment(e, '/delete-sort-comment');
+  });
+  $('.post-comment-delete').on('click', function (e) {
+    deleteComment(e, '/delete-post-comment');
+  });
 });

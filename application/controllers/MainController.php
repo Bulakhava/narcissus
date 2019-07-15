@@ -13,6 +13,7 @@ class MainController extends Controller
     public function indexAction()
     {
         $this->list = $this->model->getPostsList();
+
         foreach ($this->list as &$item) {
             $item['imgSrc'] = $this->getImgPostPath($item['id']);
         }

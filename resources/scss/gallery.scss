@@ -5,24 +5,28 @@
   .gallery-wrapper{
         margin:0 auto;
         display:flex;
-        justify-content:space-between;
+      //  justify-content:space-between;
         flex-wrap:wrap;
       }
   .card{
-    width:23%;
+    box-sizing: border-box;
+    width:25%;
     margin-bottom: 30px;
+    padding: 0 20px;
   }
 }
 
 .card{
   border: 0;
-  box-shadow: 0 6px 0px 0 rgba(0, 0, 0, 0.01), 0 15px 32px 0 rgba(0, 0, 0, 0.06);
+
   font-size: 1rem;
   font-weight: normal;
-  background-color: #fff;
+
   .card-body {
     padding: 0;
     height: auto;
+    box-shadow: 0 6px 0px 0 rgba(0, 0, 0, 0.01), 0 15px 32px 0 rgba(0, 0, 0, 0.06);
+    background-color: #fff;
   }
   .card-img-top {
     width: 100%;
@@ -39,13 +43,15 @@
   }
   .card-block-wrapper{
     min-height: 110px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: relative;
   }
   .card-actions{
     display: flex;
     justify-content: space-between;
+     position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
   }
   h4{
     text-transform: uppercase;
@@ -53,13 +59,14 @@
     letter-spacing: 0.05rem;
     font-size: 18px;
     margin: 0;
+
   }
 }
 
 @media(max-width:1580px){
   .gallery{
     .card{
-       width: 32%;
+       width: 33.33%;
     }
   }
 }
@@ -67,20 +74,17 @@
 @media(max-width:1160px){
   .gallery{
     .card{
-      width: 48%;
+      width: 50%;
       margin-bottom: 30px;
     }
   }
 }
 
-
-
-
-
 @media(max-width:680px){
   .gallery{
     .card{
       width:100%;
+      padding: 0;
       margin-bottom: 30px;
     }
   }

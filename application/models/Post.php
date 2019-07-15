@@ -4,6 +4,8 @@ namespace application\models;
 
 use application\core\Model;
 
+use application\models\Comment;
+
 class Post extends Model
 {
 
@@ -32,6 +34,7 @@ class Post extends Model
             'id' => $id,
         ];
         $this->db->query('DELETE FROM posts WHERE id = :id', $params);
+        $this->db->query('DELETE FROM post_comments WHERE post_id = :id', $params);
         $this->rmRec('img/posts/' . $id);
     }
 
@@ -51,6 +54,15 @@ class Post extends Model
         $this->db->query('UPDATE posts SET title = :title, text = :text WHERE id = :id', $params);
         return ['message' => 'Статья отредактирована', 'status' => 'success'];
     }
+
+
+    public function getComments($postId){
+        $params = [
+            'post_id' => $postId,
+        ];
+        return $this->db->row('SELECT * FROM post_comments WHERE post_id = :post_id ORDER BY time DESC', $params);
+    }
+
 
 
 }

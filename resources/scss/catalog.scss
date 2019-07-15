@@ -142,6 +142,7 @@
   }
   .card-image{
     width: 30%;
+    height: auto;
     position: relative;
     img{
       position: relative;
@@ -161,6 +162,7 @@
   .card-actions{
     padding-top: 10px;
     justify-content: flex-end;
+    position: static;
   }
   .card-block-wrapper{
     display: block;
