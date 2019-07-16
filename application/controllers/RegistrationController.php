@@ -26,7 +26,6 @@ class RegistrationController extends Controller {
         }
         
         $resalt = $this->model->register($_POST);
-
         $this->view->message($resalt['status'], $resalt['message']);
     }
         $this->view->render('Регистрация');

@@ -4,9 +4,11 @@ namespace application\models;
 
 use application\core\Model;
 
-class Account extends Model{
+class Account extends Model
+{
 
-    public function validate($input, $post) {
+    public function validate($input, $post)
+    {
         $rules = [
             'firstName' => [
                 'pattern' => '#^[\w]{3,30}$#',
@@ -35,15 +37,17 @@ class Account extends Model{
     }
 
 
-    public function checkEmailExists($email) {
+    public function checkEmailExists($email)
+    {
         $params = [
             'email' => $email,
         ];
         return $this->db->column('SELECT id FROM accounts WHERE email = :email', $params);
     }
 
-     public function register($post) {
-       
+    public function register($post)
+    {
+
         $token = $this->createToken();
 
         $params = [
@@ -57,34 +61,37 @@ class Account extends Model{
             'date_reg' => time()
         ];
 
-       $this->db->query('INSERT INTO accounts VALUES (:id, :email, :first_name, :last_name, :password, :token, :status, :date_reg)', $params);
+        $this->db->query('INSERT INTO accounts VALUES (:id, :email, :first_name, :last_name, :password, :token, :status, :date_reg)', $params);
 
-       if(!$this->db->getError_info()[2]){
+        if (!$this->db->getError_info()[2]) {
 
-           mail($post['email'], 'Register', 'Confirm: '.$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/confirm?token=' . $token . '&email=' . $post['email']);
+            mail($post['email'], 'Register', 'Confirm: ' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/confirm?token=' . $token . '&email=' . $post['email']);
 
-          return ['message' => 'Ссылка для подтверждения регистрации выслана вам на почту', 'status' => 'success'];
-       } else {
-           return ['message' => 'Ошибка регистрации', 'status' => 'error'];
-       }
+            return ['message' => 'Ссылка для подтверждения регистрации выслана вам на почту', 'status' => 'success'];
+        } else {
+            return ['message' => 'Ошибка регистрации', 'status' => 'error'];
+        }
 
     }
 
-    public function createToken() {
+    public function createToken()
+    {
         return substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstuvwxyz', 30)), 0, 30);
     }
 
 
-    public function checkTokenExists($email, $query_token) {
+    public function checkTokenExists($email, $query_token)
+    {
         $params = [
             'email' => $email,
         ];
         $token = $this->db->column('SELECT token FROM accounts WHERE email = :email', $params);
-        
-         return $token === $query_token;
+
+        return $token === $query_token;
     }
 
-    public function activate($email) {
+    public function activate($email)
+    {
         $params = [
             'email' => $email,
         ];
@@ -92,31 +99,58 @@ class Account extends Model{
     }
 
 
-    public function checkAdmin($login, $password){
-         $config = require 'application/config/admin.php';
-         return $config['login'] === $login and $config['password'] === $password;
+    public function checkAdmin($login, $password)
+    {
+        $config = require 'application/config/admin.php';
+        return $config['login'] === $login and $config['password'] === $password;
     }
 
 
-    public function checkLogin($email, $password){
-       $params = [
+    public function checkLogin($email, $password)
+    {
+        $params = [
             'email' => $email,
         ];
         $data = $this->db->row('SELECT * FROM accounts WHERE email = :email', $params);
-        if(empty($data)){
+        if (empty($data)) {
             return ['message' => 'Неверный логин', 'status' => 'error'];
-        } elseif($data[0]['status'] != 1) {
-             return ['message' => 'Аккаунт ожидает подтверждения по E-mail', 'status' => 'error'];
+        } elseif ($data[0]['status'] != 1) {
+            return ['message' => 'Аккаунт ожидает подтверждения по E-mail', 'status' => 'error'];
         } else {
-            if(!password_verify ($password, $data[0]['password'])){
+            if (!password_verify($password, $data[0]['password'])) {
                 return ['message' => 'Неверный пароль', 'status' => 'error'];
             } else {
                 return ['message' => 'Ok', 'status' => 'success', 'id' => $data[0]['id'], 'first_name' => $data[0]['first_name']];
             }
-      
         }
-       
     }
 
-    
+
+    public function sendLinkForChangePassword ($email)
+    {
+        $params = [
+            'email' => $email,
+        ];
+        $token = $this->db->row('SELECT token FROM accounts WHERE email = :email', $params)[0]['token'];
+        mail($email, 'Change password', 'Change password: ' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/change-password?token=' . $token . '&email=' . $email);
+        return ['message' => 'Ссылка для смены пароля выслана вам на почту', 'status' => 'success'];
+    }
+
+
+    public function changePassword($password, $email){
+        $params = [
+            'password' => password_hash($password, PASSWORD_BCRYPT),
+            'email' => $email
+        ];
+        $this->db->query('UPDATE accounts SET password = :password WHERE email = :email', $params);
+        header('location: /login');
+        exit;
+       // return ['message' => 'Статья отредактирована', 'status' => 'success'];
+    }
+
+
 }
+
+
+
+

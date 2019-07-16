@@ -1,7 +1,7 @@
 <div class="contacts-page">
     <div class="wrapper fx-container">
         <div class="contacts_content">
-            <div class="card contacts-card">
+            <div class="card contacts-card animated fadeInDown">
                 <div class="about-me">
                 <div class="image">
                     <img src="../img/man.jpg" alt="my-photo" width="150">

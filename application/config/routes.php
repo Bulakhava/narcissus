@@ -176,4 +176,17 @@ return [
         'folderCtrl' => '',
         'model' => null
     ],
+    'forgot-password' => [
+        'controller' => 'forgotPassword',
+        'action' => 'forgotPassword',
+        'folderCtrl' => '',
+        'model' => 'Account'
+    ],
+    'change-password' => [
+        'controller' => 'changePassword',
+        'action' => 'changePassword',
+        'folderCtrl' => '',
+        'model' => 'Account'
+    ],
 ];
+

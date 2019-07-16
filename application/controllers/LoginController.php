@@ -42,19 +42,3 @@ class LoginController extends Controller {
 
 }  
 
-
-
-
-// public function loginAction() {
-// 		if (isset($_SESSION['admin'])) {
-// 			$this->view->redirect('admin/add');
-// 		}
-// 		if (!empty($_POST)) {
-// 			if (!$this->model->loginValidate($_POST)) {
-// 				$this->view->message('error', $this->model->error);
-// 			}
-// 			$_SESSION['admin'] = true;
-// 			$this->view->location('admin/add');
-// 		}
-// 		$this->view->render('Вход');
-// 	}

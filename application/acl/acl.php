@@ -2,7 +2,7 @@
 
 return [
     'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery', 'addSortComment', 'post', 'addPostComment', 'contacts'],
-    'guest'=>['index', 'registration', 'confirm', 'login', 'catalog', 'getGalleryImg', 'gallery', 'post', 'contacts'],
+    'guest'=>['index', 'registration', 'confirm', 'login', 'catalog', 'getGalleryImg', 'gallery', 'post', 'contacts', 'forgotPassword', 'changePassword'],
     'admin'=>[
         'index',
         'registration',
@@ -32,6 +32,8 @@ return [
         'post',
         'addPostComment',
         'deletePostComment',
-        'contacts'
+        'contacts',
+        'forgotPassword',
+        'changePassword'
     ]
 ];

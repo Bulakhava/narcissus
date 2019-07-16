@@ -17,8 +17,9 @@
 }
 
 .card{
+  box-sizing: border-box;
   border: 0;
-
+  padding: 30px;
   font-size: 1rem;
   font-weight: normal;
 
