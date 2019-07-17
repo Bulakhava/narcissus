@@ -2,7 +2,7 @@
     <div class="card-form animated fadeInDown"">
             <div class="user-form">
                 <div class="title">Вход</div>
-                <form id="form-login" action="/login" method="post">
+                <form id="form-login" action="/login" method="post" autocomplete="off">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="text" name="email">

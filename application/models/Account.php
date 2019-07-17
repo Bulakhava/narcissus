@@ -136,16 +136,25 @@ class Account extends Model
         return ['message' => 'Ссылка для смены пароля выслана вам на почту', 'status' => 'success'];
     }
 
+    public function findUserByEmailToken($email, $token){
+        $params = [
+            'token' => $token
+        ];
+        $user = $this->db->row('SELECT * FROM accounts WHERE token = :token',  $params);
+        if(!sizeof($user) || $user[0]['email'] !== $email){
+           return null;
+        }
+       return $user[0]['id'];
+    }
 
-    public function changePassword($password, $email){
+    public function changePassword($password, $id){
         $params = [
             'password' => password_hash($password, PASSWORD_BCRYPT),
-            'email' => $email
+            'id' => $id
         ];
-        $this->db->query('UPDATE accounts SET password = :password WHERE email = :email', $params);
-        header('location: /login');
-        exit;
-       // return ['message' => 'Статья отредактирована', 'status' => 'success'];
+        $this->db->query('UPDATE accounts SET password = :password WHERE id = :id', $params);
+        return ['message' => 'Статья отредактирована', 'status' => 'success', 'url' => '/login'];
+
     }
 
 

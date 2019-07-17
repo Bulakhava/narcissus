@@ -1,7 +1,8 @@
 <div class="wrapper">
     <div class="card-form animated fadeInDown">
         <div class="user-form">
-            <form id="change-password" action="/change-password" method="post">
+
+            <form id="change-password" action="/change-password?token=<?php echo($_GET["token"]) ?>&email=<?php echo($_GET["email"]) ?>" method="post">
                 <div class="form-group">
                     <label>Новый пароль</label>
                     <input type="password" name="password" id="password">

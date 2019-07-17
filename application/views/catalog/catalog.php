@@ -4,7 +4,7 @@
 
             <div class="catalog_content">
 
-                <div class="card card-gorisintal" style="margin-bottom: 40px">
+                <div class="card card-gorisintal">
                     <div class="card-body">
                         <div class="card-image">
                             <img src="<?php echo $imgPath; ?>" alt="flower" width="100%">

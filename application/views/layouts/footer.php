@@ -6,7 +6,7 @@
                 <li><a href="/catalog">Каталог</a></li>
                 <li><a href="/gallery">Гелерея</a></li>
 <!--                <li><a href="/">Статьи</a></li>-->
-<!--                <li><a href="#">Контакты</a></li>-->
+                <li><a href="/contacts">Контакты</a></li>
             </ul>
         </nav>
         <div class="contact">

@@ -109,13 +109,16 @@
     }
     &_navigation{
       order: 1;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       ul{
         display: flex;
         flex-wrap: wrap;
         li{
           padding: 6px 15px 6px 0;
           border: none;
+          a{
+            padding: 6px 12px;
+          }
         }
       }
     }
@@ -124,6 +127,7 @@
 
 @media(max-width:480px){
   .catalog{
+    padding: 15px 0 25px;
     &_content{
       .image{
         margin: 40px 0 20px;
@@ -135,6 +139,7 @@
 
 .card.card-gorisintal{
   margin-left: 100px;
+  margin-bottom: 40px;
   .card-body{
     display: flex;
     padding: 40px 0;
@@ -191,8 +196,17 @@
 }
 
 @media(max-width: 480px){
-  .card.card-gorisintal  .card-block{
-    padding-right: 20px;
-    padding-left:20px;
+  .card.card-gorisintal {
+    padding: 20px 0 0;
+   margin-bottom: 0;
+    .card-body{
+      box-shadow: none;
+      padding-bottom: 0;
+    }
+    .card-block{
+      padding-right: 0;
+      padding-left:0;
+    }
   }
+
 }

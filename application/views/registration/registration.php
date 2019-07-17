@@ -2,7 +2,7 @@
     <div class="card-form animated fadeInDown">
     <div class="user-form">
         <div class="title">Регистрация</div>
-        <form id="form-registration" action="/registration" method="post">
+        <form id="form-registration" action="/registration" method="post" autocomplete="off">
             <div class="form-group">
                 <label>Имя</label>
                 <input type="text" name="firstName">
