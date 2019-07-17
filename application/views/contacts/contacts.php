@@ -4,7 +4,7 @@
             <div class="card contacts-card animated fadeInDown">
                 <div class="about-me">
                 <div class="image">
-                    <img src="../img/man.jpg" alt="my-photo" width="150">
+                    <img src="../img/i.jpg" alt="my-photo" width="150">
                 </div>
                 <div class="content">
                     <div class="name">Галина Борисевич</div>
