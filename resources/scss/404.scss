@@ -1,0 +1,36 @@
+@import "variables.scss";
+
+.err-404{
+  max-width: 360px;
+  margin: 50px auto 110px;
+  text-align: center;
+
+  &_img{
+    color: $pink-color;
+    padding-bottom: 5px;
+    position: relative;
+    left: -20px;
+
+    .font-18{
+      font-size: 18px;
+      position: relative;
+      right: -40px;
+    }
+    .font-135{
+      font-size: 135px;
+      font-weight: 300;
+    }
+  }
+  &_title{
+    font-size: 25px;
+    line-height: 32px;
+    padding-top: 35px;
+    border-top: 1px solid #c4c4c4;
+  }
+  &_text{
+    font-size: 14px;
+    line-height: 24px;
+    color: #606060;
+    margin: 25px 0 35px;
+  }
+}
