@@ -2,7 +2,7 @@
 @import "mixins.scss";
 
 .posts-list{
-  padding: 0 0 80px;
+  padding: 80px 0;
   .posts{
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +17,7 @@
 
 @media (max-width: 1400px) {
   .posts-list{
+    padding: 60px 0;
     .post{
       width: 25%;
     }
@@ -26,7 +27,7 @@
 
 @media (max-width: 950px) {
   .posts-list{
-    padding-bottom: 40px;
+    padding: 40px 0;
     .post{
       width: 33.33%;
     }

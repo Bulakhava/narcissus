@@ -2,7 +2,7 @@
 
 namespace application\controllers;
 use application\core\Controller;
-require($_SERVER['DOCUMENT_ROOT'].'/application/lib/send_mail.php');
+use application\lib\PHPMailer;
 
 class ContactsController extends Controller {
 
@@ -14,9 +14,8 @@ class ContactsController extends Controller {
     }
 
     private function sendMsg($post){
-
-        $emails_to = array("coronacia@mail.ru");
-        $email_from = "olga.bulakhava@gmail.com";
+        $emails_to = array('olga.bulakhava@gmail.com', 'coronacia@mail.ru');
+        $email_from = 'narciss-and-k@mail.ru';
         if (!isset($post['name']) ||
             !isset($post['email']) ||
             !isset($post['message']) ){
@@ -37,19 +36,26 @@ class ContactsController extends Controller {
         $email_message .= "<b>Имя:</b> " . clean_string($name) . "<br>";
         $email_message .= "<b>Email:</b> " . clean_string($email) . "<br>";
         $email_message .= "<b>Сообщение:</b> " . clean_string($message) . "<br>";
-
         $email_subject = "Нарцисс-и-К -> " . $name;
 
+        $mail = new PHPMailer();
+        $mail->CharSet = 'utf-8';
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mail.ru';
+        $mail->SMTPAuth = true;
+        $mail->Username = $email_from;
+        $mail->Password = 'rubikidsgloves1979';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+        $mail->setFrom($email_from);
+        $mail->isHTML(true);
+        $mail->Subject = $email_subject;
+        $mail->Body = $email_message;
 
-        foreach ($emails_to as $email_to) {
-            $mail_array = array(
-                'to' => $email_to,
-                'from' => $email_from,
-                'subject' => $email_subject,
-                'message' => $email_message
-            );
-            send_mail($mail_array);
-        }
+          foreach ($emails_to as $email_to) {
+                $mail->addAddress($email_to);
+                $mail->send();
+            }
 
         $this->view->message('success', 'Ваше сообщение отправлено!');
 

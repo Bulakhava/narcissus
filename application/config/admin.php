@@ -2,5 +2,5 @@
 
 return [
     'login' => 'admin',
-    'password' => '12345'
+    'password' => 'galina@praleska'
 ];

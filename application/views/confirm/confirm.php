@@ -3,6 +3,6 @@
 		<div class="modal-msg_text">
 			<?php echo $text; ?>
 		</div>
-		<a href="<?php echo $link; ?>" class="modal-close butt butt-green">OK</a>
+		<a href="<?php echo $link; ?>" class="modal-close butt butt-gradient" style="display: block;width: 80px; margin: 30px auto 0">OK</a>
 	</div>
 </div>

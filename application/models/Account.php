@@ -3,6 +3,7 @@
 namespace application\models;
 
 use application\core\Model;
+use application\lib\PHPMailer;
 
 class Account extends Model
 {
@@ -45,6 +46,29 @@ class Account extends Model
         return $this->db->column('SELECT id FROM accounts WHERE email = :email', $params);
     }
 
+    private function send_mail($email, $token, $body, $subject){
+
+
+        $email_from = 'narciss-and-k@mail.ru';
+
+        $mail = new PHPMailer();
+        $mail->CharSet = 'utf-8';
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mail.ru';
+        $mail->SMTPAuth = true;
+        $mail->Username = $email_from;
+        $mail->Password = 'rubikidsgloves1979';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+        $mail->setFrom($email_from);
+        $mail->addAddress($email);
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->send();
+
+    }
+
     public function register($post)
     {
 
@@ -62,12 +86,13 @@ class Account extends Model
         ];
 
         $this->db->query('INSERT INTO accounts VALUES (:id, :email, :first_name, :last_name, :password, :token, :status, :date_reg)', $params);
-
-        if (!$this->db->getError_info()[2]) {
-
-            mail($post['email'], 'Register', 'Confirm: ' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/confirm?token=' . $token . '&email=' . $post['email']);
-
-            return ['message' => 'Ссылка для подтверждения регистрации выслана вам на почту', 'status' => 'success'];
+         if (!$this->db->getError_info()[2]) {
+             $link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/confirm?token=' . $token . '&email=' . $post['email'];
+             $this -> send_mail( $post['email'],
+                       $token,
+                      'Для подтверждения регистрации пройдитепо ссылке: <a href="' . $link . '">' . $link . '</a>',
+                       'Подтверждение регистрации');
+             return ['message' => 'Ссылка для подтверждения регистрации выслана вам на почту', 'status' => 'success'];
         } else {
             return ['message' => 'Ошибка регистрации', 'status' => 'error'];
         }
@@ -132,8 +157,14 @@ class Account extends Model
             'email' => $email,
         ];
         $token = $this->db->row('SELECT token FROM accounts WHERE email = :email', $params)[0]['token'];
-        mail($email, 'Change password', 'Change password: ' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/change-password?token=' . $token . '&email=' . $email);
-        return ['message' => 'Ссылка для смены пароля выслана вам на почту', 'status' => 'success'];
+
+        $link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/change-password?token=' . $token . '&email=' . $email;
+
+        $this -> send_mail( $email,
+             $token,
+            'Для смены пароля пройдитепо ссылке: <a href="' . $link . '">' . $link . '</a>',
+            'Смена пароля');
+             return ['message' => 'Ссылка для смены пароля выслана вам на почту', 'status' => 'success'];
     }
 
     public function findUserByEmailToken($email, $token){

@@ -1,10 +1,10 @@
 <?php
-//
+
 //return [
-//    'host' => 'mysql1-win.activeby.net:3306',
-//    'name' => 'user2077566_narcissus',
+//    'host' => 'localhost',
+//    'name' => 'bulak473_narciss',
 //    'password' => 'rubikidsgloves1979',
-//    'user' => 'user2_olga'
+//    'user' => 'bulak473_olga'
 //];
 
 return [

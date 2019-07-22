@@ -40,7 +40,7 @@ class Sort extends Model
 
     public function getSortsList()
     {
-        return $this->db->row('SELECT id, title FROM sorts ORDER BY title');
+        return $this->db->row('SELECT id, title FROM sorts ORDER BY title ASC');
     }
 
     public function deleteSort($id)

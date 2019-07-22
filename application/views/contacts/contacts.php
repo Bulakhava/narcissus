@@ -10,7 +10,7 @@
                     <div class="name">Галина Борисевич</div>
                     <div class="email">coronacia@mail.ru</div>
                     <div class="text">
-                        David is an architectural designer, writer and researcher. He has spent the last few years working around the world, constantly exploring the relationship between environment and design. Interested in landscape and preservation, I advocate rigorous analysis and a critical, empathetic process. I believe great design arises from the unexpected.
+                        Привет, друзья! Рада приветствовать вас на своем сайте. Хочу, чтобы общение было обоюдным. Высказывайте свое мнение, пожелания, советы, задавайте вопросы, если что-то заинтересовало. Постараюсь ответить в кратчайший срок.
                     </div>
                 </div>
                 </div>

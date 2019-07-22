@@ -171,18 +171,18 @@ header{
   }
 }
 
-
-
-
 @media(max-width:700px){
   header{
      .user{
       display: none;
     }
   }
+  .top-navigation{
+    &_fixed{
+      position: static;
+    }
+  }
 }
-
-
 
 @media(max-width:590px){
   header{

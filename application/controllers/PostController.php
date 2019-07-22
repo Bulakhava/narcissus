@@ -30,8 +30,8 @@ class PostController extends Controller
         }
 
         $this-> view-> render($post[0]['title'], [
-              'page' => 'post',
-              'post' => $post[0],
+               'page' => 'post',
+               'post' => $post[0],
                'imgPath' => $this->getImgPostPath($id),
                'id' => $id,
                'post_date' =>  date( 'd.m.Y', $post[0]['time']),

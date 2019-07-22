@@ -43,5 +43,4 @@ $(function () {
     $('.open-slider').on('click', openSlider);
 
 
-
 });

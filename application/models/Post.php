@@ -4,11 +4,8 @@ namespace application\models;
 
 use application\core\Model;
 
-use application\models\Comment;
-
 class Post extends Model
 {
-
     public function postAdd($post)
     {
         $params = [
@@ -17,15 +14,13 @@ class Post extends Model
             'text' => trim($post['text']),
             'time' => time()
         ];
-
         $this->db->query('INSERT INTO posts VALUES (:id, :title, :text, :time)', $params);
         return ['id' => $this->db->lastInsertId(), 'status' => 'success'];
-
     }
 
     public function getPostsList()
     {
-        return $this->db->row('SELECT id, title FROM posts ORDER BY title');
+        return $this->db->row('SELECT id, title FROM posts ORDER BY time DESC');
     }
 
     public function deletePost($id)
@@ -55,14 +50,12 @@ class Post extends Model
         return ['message' => 'Статья отредактирована', 'status' => 'success'];
     }
 
-
     public function getComments($postId){
         $params = [
             'post_id' => $postId,
         ];
         return $this->db->row('SELECT * FROM post_comments WHERE post_id = :post_id ORDER BY time DESC', $params);
     }
-
 
 
 }
