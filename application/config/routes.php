@@ -188,5 +188,11 @@ return [
         'folderCtrl' => '',
         'model' => 'Account'
     ],
+    'post-like/{id:\d+}' => [
+        'controller' => 'like',
+        'action' => 'postLike',
+        'folderCtrl' => '',
+        'model' => 'Like'
+    ],
 ];
 

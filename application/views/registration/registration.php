@@ -1,7 +1,10 @@
 <div class="wrapper">
     <div class="card-form animated fadeInDown">
     <div class="user-form">
-        <div class="title">Регистрация</div>
+        <div class="user-form-header">
+             <div class="title">Регистрация</div>
+            <div class="link" style="padding: 10px 0"><a href="/login">Есть аккаунт</a></div>
+        </div>
         <form id="form-registration" action="/registration" method="post" autocomplete="off">
             <div class="form-group">
                 <label>Имя</label>

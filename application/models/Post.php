@@ -12,9 +12,10 @@ class Post extends Model
             'id' => 0,
             'title' => trim($post['title']),
             'text' => trim($post['text']),
-            'time' => time()
+            'time' => time(),
+            'count_like' => 0
         ];
-        $this->db->query('INSERT INTO posts VALUES (:id, :title, :text, :time)', $params);
+        $this->db->query('INSERT INTO posts VALUES (:id, :title, :text, :time, :count_like)', $params);
         return ['id' => $this->db->lastInsertId(), 'status' => 'success'];
     }
 
@@ -30,6 +31,7 @@ class Post extends Model
         ];
         $this->db->query('DELETE FROM posts WHERE id = :id', $params);
         $this->db->query('DELETE FROM post_comments WHERE post_id = :id', $params);
+        $this->db->query('DELETE FROM post_likes WHERE post_id = :id', $params);
         $this->rmRec('img/posts/' . $id);
     }
 
@@ -57,5 +59,13 @@ class Post extends Model
         return $this->db->row('SELECT * FROM post_comments WHERE post_id = :post_id ORDER BY time DESC', $params);
     }
 
+    public function getLikeStatus($id){
+        $params = [
+            'user_id' => $_SESSION['id'],
+            'post_id' => $id
+        ];
+        $like = $this->db->row('SELECT * FROM posts_likes WHERE user_id = :user_id AND post_id = :post_id', $params);
+        return sizeof($like) ?  true : false;
+    }
 
 }

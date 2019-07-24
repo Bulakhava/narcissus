@@ -15,7 +15,7 @@ class GalleryController extends Controller
             $imagesGalDir = 'img/sorts/' . $item['id'] . '/gallery';
             $item['galleryImgLength'] = sizeof($this->getGalleryImgPath($imagesGalDir));
         }
-        $this->view->render('Галерея', [
+        $this->view->render('Фотографии садовых цветов', [
             'list' => $this->list
         ]);
     }

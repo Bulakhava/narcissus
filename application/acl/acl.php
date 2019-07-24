@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery', 'addSortComment', 'post', 'addPostComment', 'contacts'],
+    'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery', 'addSortComment', 'post', 'addPostComment', 'contacts', 'postLike'],
     'guest'=>['index', 'registration', 'confirm', 'login', 'catalog', 'getGalleryImg', 'gallery', 'post', 'contacts', 'forgotPassword', 'changePassword'],
     'admin'=>[
         'index',

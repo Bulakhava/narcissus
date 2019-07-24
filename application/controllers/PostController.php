@@ -12,6 +12,8 @@ class PostController extends Controller
     {
         $id = $this->getIdFromUrl();
         $post = $this->model->getPost($id);
+        $like_status = $this->model->getLikeStatus($id);
+
         if(!sizeof($post)){
             View::errorCode(404);
         }
@@ -36,7 +38,8 @@ class PostController extends Controller
                'id' => $id,
                'post_date' =>  date( 'd.m.Y', $post[0]['time']),
                'comments' => $comments,
-               'last_posts' => $last_posts
+               'last_posts' => $last_posts,
+               'like_status' => $like_status
         ]);
     }
 

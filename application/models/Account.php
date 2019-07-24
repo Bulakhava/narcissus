@@ -48,7 +48,6 @@ class Account extends Model
 
     private function send_mail($email, $token, $body, $subject){
 
-
         $email_from = 'narciss-and-k@mail.ru';
 
         $mail = new PHPMailer();

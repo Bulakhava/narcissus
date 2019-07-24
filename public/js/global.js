@@ -45,4 +45,45 @@ $(function () {
   }
 
   $('.open-slider').on('click', openSlider);
+
+  function postRequest(url, data) {
+    return $.ajax({
+      url: url,
+      type: 'post',
+      data: data
+    });
+  }
+
+  function putLike(e, id_post) {
+    postRequest("/post-like/".concat(id_post), {}).pipe(function (res) {
+      return JSON.parse(res);
+    }).done(function (res) {
+      var el = $(e.currentTarget);
+
+      if (res.status === 'added') {
+        el.find('.post-likes-count').text(+el.find('.post-likes-count').text() + 1);
+        el.find('i').css('color', '#FF586B');
+        el.attr('title', 'Отменить');
+      } else if (res.status === 'deleted') {
+        el.find('.post-likes-count').text(+el.find('.post-likes-count').text() - 1);
+        el.find('i').css('color', '#999');
+        el.attr('title', 'Нравится');
+      }
+    });
+  }
+
+  function openModalToLogin() {
+    $('.modal-go-to-login').removeClass('hidden');
+    $(document).mouseup(closePopup);
+  }
+
+  function closePopup(e) {
+    if (!$(event.target).closest('.modal-go-to-login').length) {
+      $('.modal-go-to-login').addClass('hidden');
+    }
+  }
+
+  $('.post-likes').on('click', function (e) {
+    $(this).data('user_status') === 'authorized' ? putLike(e, $(this).data('id_post')) : openModalToLogin();
+  });
 });

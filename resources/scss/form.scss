@@ -9,10 +9,24 @@
 
 }
 .user-form{
+  .user-form-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom:30px;
+    a{
+      color: $green-color;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
   .title{
     font-size:35px;
     text-align:center;
-    margin-bottom:30px;
+
   }
   .form-group{
     margin-bottom:10px;
@@ -41,7 +55,7 @@
   }
   .form-buttons{
     a{
-     // float:right;
+      // float:right;
       color:$text-color;
       text-decoration:none;
       &:hover{
@@ -71,8 +85,8 @@
   }
 
   .file-group{
-     display: flex;
-     align-items: center;
+    display: flex;
+    align-items: center;
     &_changeImg{
       position: relative;
       .file-name{
@@ -84,19 +98,19 @@
   }
 
   input[type=file]{
-       display: none;
+    display: none;
   }
 
-    .addFile-label{
-      display: inline-block;
-      margin-top: 0;
-      span{
-        margin-right: 6px;
-      }
-      span, img{
-        vertical-align: middle;
-      }
+  .addFile-label{
+    display: inline-block;
+    margin-top: 0;
+    span{
+      margin-right: 6px;
     }
+    span, img{
+      vertical-align: middle;
+    }
+  }
 
   .file-name{
     display: none;
@@ -149,7 +163,7 @@ input, textarea{
   padding-bottom:9px;
   padding-top: 9px;
   border-radius:2px;
- // color: #9e9e9e;
+  // color: #9e9e9e;
   color:$text-color;
   &:focus, &:active{
     outline: none;
@@ -180,7 +194,11 @@ input, textarea{
 }
 
 @media(max-width:480px){
-.user-form{
-	width: 100%;
-}
+  .card-form{
+    box-shadow: none;
+    padding: 0;
+  }
+  .user-form{
+    width: 100%;
+  }
 }

@@ -1,15 +1,12 @@
 <div class="comments">
-    <?php if ($_SESSION and $_SESSION['id']): ?>
     <div class="add-comment">
         <form action="<?php echo $post_url; ?>" method="post" id="comment-form">
             <div class="form-group" style="position: relative">
-              <input type="text" placeholder="Оставить комментарий" name="comment">
+              <input type="text" placeholder="<?php echo ($_SESSION and $_SESSION['id']) ? 'Оставить комментарий' : 'Для оставления комментариев авторизируйтесь'; ?>" name="comment" <?php echo ($_SESSION and $_SESSION['id']) ? false : 'disabled'; ?>>
             </div>
-            <button class="butt butt-white" type="submit">Отправить</button>
+            <button class="butt <?php echo ($_SESSION and $_SESSION['id']) ? 'butt-white' : ''; ?>" type="submit" <?php echo ($_SESSION and $_SESSION['id']) ? false : 'disabled'; ?>>Отправить</button>
         </form>
     </div>
-    <?php endif; ?>
-
     <?php if (sizeof($comments)): ?>
     <div class="comments-list">
         <?php foreach ($comments as $val): ?>

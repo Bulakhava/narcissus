@@ -26,15 +26,20 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('public'))
 });
 
-gulp.task('dev', function () {
-    gulp.run('scripts', 'styles');
+// gulp.task('dev', function () {
+//     gulp.run('scripts', 'styles');
+//
+//     gulp.watch('resources/js/*js', function () {
+//         gulp.run('scripts');
+//     })
+//     gulp.watch('resources/scss/*scss', function () {
+//         gulp.run('styles');
+//     })
+// });
 
-    gulp.watch('resources/js/*js', function () {
-        gulp.run('scripts');
-    })
-    gulp.watch('resources/scss/*scss', function () {
-        gulp.run('styles');
-    })
+gulp.task('dev', function () {
+    gulp.watch('resources/js/*js', ['scripts']);
+    gulp.watch('resources/scss/*scss', ['styles']);
 });
 
 
