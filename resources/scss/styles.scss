@@ -26,6 +26,9 @@
   url('/public/fonts/Roboto-Medium.ttf') format('truetype');
 }
 
+*{
+  box-sizing: border-box;
+}
 
 html,
 body {

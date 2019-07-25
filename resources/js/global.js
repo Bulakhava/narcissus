@@ -2,7 +2,9 @@ $(function () {
 
    function toggleMobileMenu() {
         $('.mobile-menu').slideToggle("fast");
-        $('body').toggleClass('overflow');
+        if($(window).width() <= 683){
+            $('body').toggleClass('overflow');
+        }
         $(this).toggleClass('cross');
     }
 
@@ -88,5 +90,22 @@ $(function () {
         const url = $(this).data('url') + location.href;
         window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=500,height=500");
     })
+
+    const tmpl = path =>
+        `<div class="big-img_overlay">
+          <div class="image zoomInImg">
+             <img src="${path}" class="large-img">
+         </div>
+         </div>`;
+    function zoomIn() {
+        $('body').addClass('overflow').append($(tmpl($(this).data('url'))));
+        $('.big-img_overlay').on('click', zoomOut);
+    }
+    function zoomOut() {
+        $('body').removeClass('overflow');
+        $(this).remove();
+    }
+    $('.zumer').on('click', zoomIn);
+
 
 });

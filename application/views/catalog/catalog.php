@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-block">
                             <div class="card-block-wrapper">
-                                <h4 class="card-title"><?php echo htmlspecialchars($sort['title'], ENT_QUOTES); ?></h4>
+                                <h1 class="card-title"><?php echo htmlspecialchars($sort['title'], ENT_QUOTES); ?></h1>
                                 <div class="card-text"><?php echo $sort['text']; ?></div>
                             </div>
                         </div>
