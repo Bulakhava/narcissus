@@ -9,7 +9,11 @@
                </div>
                <div class="card-text"><?php echo $post['text']; ?></div>
                <div class="card-action">
-                   <div class="social"></div>
+
+                   <?php
+                   include($_SERVER['DOCUMENT_ROOT'] . '/application/views/shared/shareSocial.php');
+                   ?>
+
 
                    <div class="post-likes"
                          data-id_post="<?php echo $post['id']; ?>"
@@ -36,7 +40,7 @@
            <?php
            $post_url = '/add-post-comment/' . $post['id'];
            $delete_class = 'post-comment-delete';
-           include($_SERVER['DOCUMENT_ROOT'].'/application/views/comments/comments.php');
+           include($_SERVER['DOCUMENT_ROOT'] . '/application/views/shared/comments.php');
            ?>
 
        </div>

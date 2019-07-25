@@ -210,4 +210,31 @@ h2{
 
 }
 
+.social{
+  .social-item{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    svg{
+      fill:#fff;
+    }
+    &.wk{
+     background-color: #4a76a8;
+    }
+    &.fb{
+      background-color: #4267b2;
+    }
+    &.ok{
+      background-color: #FF9800;
+    }
+    &.tw{
+      background-color:#1da1f2;
+    }
+  }
+}
+
 

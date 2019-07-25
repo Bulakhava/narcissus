@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <?php include 'head.php' ?>
 <body>
 <div class="container">

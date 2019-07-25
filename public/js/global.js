@@ -86,4 +86,8 @@ $(function () {
   $('.post-likes').on('click', function (e) {
     $(this).data('user_status') === 'authorized' ? putLike(e, $(this).data('id_post')) : openModalToLogin();
   });
+  $('.social-item').on('click', function () {
+    var url = $(this).data('url') + location.href;
+    window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=50,width=500,height=500");
+  });
 });

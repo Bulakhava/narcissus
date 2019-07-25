@@ -26,7 +26,7 @@
                 <?php
                 $post_url = '/add-sort-comment/' . $sort['id'];
                 $delete_class = 'sort-comment-delete';
-                include($_SERVER['DOCUMENT_ROOT'].'/application/views/comments/comments.php');
+                include($_SERVER['DOCUMENT_ROOT'] . '/application/views/shared/comments.php');
                 ?>
 
             </div>

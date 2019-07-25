@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru" prefix="og: http://ogp.me/ns#">
  <?php include 'head.php'?>
 <body>
 
