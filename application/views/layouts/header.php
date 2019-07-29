@@ -9,7 +9,7 @@
                 <li><a href="/gallery" class="<?php echo stripos($_SERVER['REQUEST_URI'], 'gallery') ? 'active' : '' ?>">галерея</a></li>
 <!--                <li><a href="">статьи</a></li>-->
                 <li><a href="/contacts" class="<?php echo stripos($_SERVER['REQUEST_URI'], 'contacts') ? 'active' : '' ?>">контакты</a></li>
-                <li style="white-space: nowrap"><a href="/guest-photo" class="<?php echo stripos($_SERVER['REQUEST_URI'], 'guest-photo') ? 'active' : '' ?>">фото гостей</a></li>
+<!--                <li style="white-space: nowrap"><a href="/guest-photo" class="--><?php //echo stripos($_SERVER['REQUEST_URI'], 'guest-photo') ? 'active' : '' ?><!--">фото гостей</a></li>-->
             </ul>
         </div>
 
@@ -87,7 +87,7 @@
             <div class="mobile-menu_item"><a href="/gallery">галерея</a></div>
 <!--            <div class="mobile-menu_item"><a href="">статьи</a></div>   -->
             <div class="mobile-menu_item"><a href="/contacts">контакты</a></div>
-            <div class="mobile-menu_item"><a href="/guest-photo">фото гостей</a></div>
+<!--            <div class="mobile-menu_item"><a href="/guest-photo">фото гостей</a></div>-->
         </div>
     </div>
 </div>

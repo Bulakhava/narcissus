@@ -26,7 +26,11 @@ class AddPostController extends AdminController {
                     }
                }
             }
-         $this->view->render('Добавить статью',['page'=>'addPost']);
+         $this->view->render('Добавить статью',[
+             'page'=>'addPost',
+             'categories' => $this->model->getCategories()
+            ]);
+
     }
 
 }

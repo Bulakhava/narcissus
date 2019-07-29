@@ -9,7 +9,15 @@
             <label>Текст</label>
             <textarea name="text">
                     <?php echo htmlspecialchars($post['text'], ENT_QUOTES); ?>
-        </textarea>
+           </textarea>
+        </div>
+        <div class="form-group">
+            <label>Категория</label>
+            <select name="category">
+                <?php foreach ($categories as $cat): ?>
+                    <option value="<?php echo $cat['id'] ?>" <?php  echo $cat['id'] === $post['category'] ? 'selected' : '' ?>><?php echo $cat['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="form-buttons">
             <button class="butt butt-blue" type="submit">Сохранить</button>
@@ -32,6 +40,14 @@
                 }
             },
             text: {
+                trigger: 'keyup blur',
+                validators: {
+                    notEmpty: {
+                        message: 'Заполните это поле'
+                    }
+                }
+            },
+            category: {
                 trigger: 'keyup blur',
                 validators: {
                     notEmpty: {

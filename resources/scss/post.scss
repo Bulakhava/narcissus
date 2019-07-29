@@ -38,6 +38,12 @@
       font-size: 14px;
       margin-top: 15px;
       font-weight: 600;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .category{
+      color: $text-color;
+      font-size: 14px;
     }
     .img{
       img{
@@ -46,51 +52,7 @@
       margin: 40px 0;
     }
   }
-  .card-action{
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    .post-likes{
-      position: relative;
-      cursor: pointer;
-      .post-likes-count{
-        font-size: 12px;
-        position: absolute;
-        top:8px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #fff;
-      }
-    }
-    .modal-go-to-login{
-      position: absolute;
-      right: -150px;
-      bottom: 50px;
-      width: 350px;
-      background-color: #fff;
-      box-shadow: $box-shadow;
-      .top{
-        padding: 20px;
-        border-bottom: $gray-border;
-        .modal-title{
-          margin-bottom: 15px;
-        }
-        .modal-content{
-          font-size: 13px;
-        }
-      }
-      .bottom{
-        padding: 20px;
-        a{
-          color: $green-color;
-        }
-      }
-      &.hidden{
-        display: none;
-      }
-    }
-  }
+
 }
 
 
@@ -177,6 +139,56 @@
     .post-card{
       box-shadow: none;
       padding: 0;
+      .date{
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+.card-action{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  .post-likes{
+    position: relative;
+    cursor: pointer;
+    .post-likes-count{
+      font-size: 11px;
+      position: absolute;
+      top:8px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+    }
+  }
+  .modal-go-to-login{
+    position: absolute;
+    right: -150px;
+    bottom: 50px;
+    width: 350px;
+    background-color: #fff;
+    box-shadow: $box-shadow;
+    .top{
+      padding: 20px;
+      border-bottom: $gray-border;
+      .modal-title{
+        margin-bottom: 15px;
+      }
+      .modal-content{
+        font-size: 13px;
+      }
+    }
+    .bottom{
+      padding: 20px;
+      a{
+        color: $green-color;
+      }
+    }
+    &.hidden{
+      display: none;
     }
   }
 }

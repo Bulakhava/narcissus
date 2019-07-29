@@ -1,6 +1,7 @@
 <div class="guest-photo">
     <div class="wrapper">
-        <div class="guest-photo_content">
+
+
                <div class="cards">
 
                    <div class="card">
@@ -56,7 +57,7 @@
                    </div>
 
 
-               </div>
+
             </div>
     </div>
 </div>

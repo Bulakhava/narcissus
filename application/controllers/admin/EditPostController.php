@@ -22,6 +22,7 @@ class EditPostController extends AdminController
              'page' => 'editPost',
              'post' => $post[0],
              'imgPath' => $this->getImgPostPath($id),
+             'categories' => $this->model->getCategories()
         ]);
     }
 

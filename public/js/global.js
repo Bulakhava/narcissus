@@ -76,8 +76,8 @@ $(function () {
     });
   }
 
-  function openModalToLogin() {
-    $('.modal-go-to-login').removeClass('hidden');
+  function openModalToLogin($this) {
+    $this.next().removeClass('hidden');
     $(document).mouseup(closePopup);
   }
 
@@ -88,7 +88,7 @@ $(function () {
   }
 
   $('.post-likes').on('click', function (e) {
-    $(this).data('user_status') === 'authorized' ? putLike(e, $(this).data('id_post')) : openModalToLogin();
+    $(this).data('user_status') === 'authorized' ? putLike(e, $(this).data('id_post')) : openModalToLogin($(this));
   });
   $('.social-item').on('click', function () {
     var url = $(this).data('url') + location.href;
@@ -110,4 +110,7 @@ $(function () {
   }
 
   $('.zumer').on('click', zoomIn);
+  $('.open_catalog_navigation').on('click', function () {
+    $('.catalog_navigation_list').slideToggle("fast");
+  });
 });

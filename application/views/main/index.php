@@ -39,8 +39,10 @@
                         <div class="image">
                             <img src="<?php echo $link['pictLink'] ?>" alt="">
                         </div>
+                        <div class="content">
                        <h2><?php echo $link['title'] ?></h2>
                         <div class="text"><?php echo $link['text'] ?></div>
+                        </div>
                     </a>
                </article>
             <?php endforeach; ?>

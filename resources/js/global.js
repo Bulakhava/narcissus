@@ -45,7 +45,6 @@ $(function () {
     $('.open-slider').on('click', openSlider);
 
 
-
     function postRequest(url, data) {
         return  $.ajax({
             url: url,
@@ -71,8 +70,8 @@ $(function () {
             });
     }
 
-    function openModalToLogin(){
-        $('.modal-go-to-login').removeClass('hidden');
+    function openModalToLogin($this){
+        $this.next().removeClass('hidden');
         $(document).mouseup(closePopup);
     }
 
@@ -83,7 +82,7 @@ $(function () {
     }
 
     $('.post-likes').on('click', function (e) {
-        $(this).data('user_status') === 'authorized' ? putLike(e, $(this).data('id_post')) : openModalToLogin();
+        $(this).data('user_status') === 'authorized' ? putLike(e, $(this).data('id_post')) : openModalToLogin($(this));
     });
 
     $('.social-item').on('click', function () {
@@ -107,5 +106,9 @@ $(function () {
     }
     $('.zumer').on('click', zoomIn);
 
+
+    $('.open_catalog_navigation').on('click', function () {
+        $('.catalog_navigation_list').slideToggle("fast");
+    })
 
 });

@@ -4,6 +4,7 @@
            <div class="card post-card">
                <h1 class="title"><?php echo htmlspecialchars($post['title'], ENT_QUOTES); ?></h1>
                <div class="date"><?php echo $post_date; ?></div>
+               <a href="/posts-list-category/<?php echo $post['category']; ?>" class="category"><?php echo $post_category_name; ?></a>
                <div class="img">
                    <img src="<?php echo $imgPath; ?>" alt="">
                </div>

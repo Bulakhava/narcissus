@@ -173,6 +173,11 @@ input, textarea{
   }
 }
 
+select{
+  margin-left: 20px;
+  min-width: 200px;
+}
+
 .editCategoryForm{
   border-bottom: $gray-border;
   padding-top: 20px;

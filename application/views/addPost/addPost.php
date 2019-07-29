@@ -10,6 +10,17 @@
                 <label>Текст</label>
                 <textarea name="text"></textarea>
             </div>
+
+            <div class="form-group">
+                <label>Категория</label>
+                <select name="category">
+                    <option value=""></option>
+                    <?php foreach ($categories as $cat): ?>
+                        <option value="<?php echo $cat['id'] ?>"><?php echo $cat['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
             <div class="file-group">
                 <label for="fileToUpload" class="addFile-label butt butt-gradient">
                     <span>Загрузить изображение</span>
@@ -33,6 +44,9 @@
                 <button class="butt butt-blue" type="submit">Сохранить</button>
             </div>
         </form>
+
+        <?php include 'addCategory.php'?>
+
     </div>
 
 </section>
@@ -52,6 +66,14 @@
                 }
             },
             text: {
+                trigger: 'keyup blur',
+                validators: {
+                    notEmpty: {
+                        message: 'Заполните это поле'
+                    }
+                }
+            },
+            category: {
                 trigger: 'keyup blur',
                 validators: {
                     notEmpty: {

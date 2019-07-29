@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery', 'addSortComment', 'post', 'addPostComment', 'contacts', 'postLike', 'guestPhoto'],
-    'guest'=>['index', 'registration', 'confirm', 'login', 'catalog', 'getGalleryImg', 'gallery', 'post', 'contacts', 'forgotPassword', 'changePassword', 'guestPhoto'],
+    'authorized'=>['index','logout', 'catalog', 'getGalleryImg', 'gallery', 'addSortComment', 'post', 'addPostComment', 'contacts', 'postLike', 'guestPhoto', 'postsListAll', 'postsListCategory'],
+    'guest'=>['index', 'registration', 'confirm', 'login', 'catalog', 'getGalleryImg', 'gallery', 'post', 'contacts', 'forgotPassword', 'changePassword', 'guestPhoto', 'postsListAll', 'postsListCategory'],
     'admin'=>[
         'index',
         'registration',
@@ -35,6 +35,9 @@ return [
         'contacts',
         'forgotPassword',
         'changePassword',
-        'guestPhoto'
+        'guestPhoto',
+        'addPostCategory',
+        'postsListAll',
+        'postsListCategory'
     ]
 ];

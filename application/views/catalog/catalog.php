@@ -32,6 +32,8 @@
             </div>
 
             <div class="catalog_navigation">
+                <div class="open_catalog_navigation">Все сорта</div>
+                <div class="catalog_navigation_list">
                 <ul>
                     <?php foreach ($list as $val): ?>
                         <li>
@@ -39,6 +41,7 @@
                        </li>
                     <?php endforeach; ?>
                 </ul>
+                </div>
             </div>
 
         </div>

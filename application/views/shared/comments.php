@@ -2,7 +2,7 @@
     <div class="add-comment">
         <form action="<?php echo $post_url; ?>" method="post" id="comment-form">
             <div class="form-group" style="position: relative">
-              <input type="text" placeholder="<?php echo ($_SESSION and $_SESSION['id']) ? 'Оставить комментарий' : 'Для оставления комментариев авторизируйтесь'; ?>" name="comment" <?php echo ($_SESSION and $_SESSION['id']) ? false : 'disabled'; ?>>
+              <input type="text" placeholder="<?php echo ($_SESSION and $_SESSION['id']) ? 'Оставить комментарий' : 'Войдите в аккаунт'; ?>" name="comment" <?php echo ($_SESSION and $_SESSION['id']) ? false : 'disabled'; ?>>
             </div>
             <button class="butt <?php echo ($_SESSION and $_SESSION['id']) ? 'butt-white' : ''; ?>" type="submit" <?php echo ($_SESSION and $_SESSION['id']) ? false : 'disabled'; ?>>Отправить</button>
         </form>

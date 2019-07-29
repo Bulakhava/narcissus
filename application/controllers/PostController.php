@@ -11,8 +11,8 @@ class PostController extends Controller
     public function postAction()
     {
         $id = $this->getIdFromUrl();
-        $post = $this->model->getPost($id);
-        $like_status = $this->model->getLikeStatus($id);
+        $post = $this->model->getPost($id)[0];
+        $post['like_status'] = $this->model->getLikeStatus($id);
 
         if(!sizeof($post)){
             View::errorCode(404);
@@ -31,15 +31,15 @@ class PostController extends Controller
             $item['imgSrc'] = $this->getImgPostPath($item['id']);
         }
 
-        $this-> view-> render($post[0]['title'], [
+        $this-> view-> render($post['title'], [
                'page' => 'post',
-               'post' => $post[0],
+               'post' => $post,
+               'post_category_name' => $this->model->getCategoryName($post['category']),
                'imgPath' => $this->getImgPostPath($id),
                'id' => $id,
-               'post_date' =>  date( 'd.m.Y', $post[0]['time']),
+               'post_date' =>  date( 'd.m.Y', $post['time']),
                'comments' => $comments,
-               'last_posts' => $last_posts,
-               'like_status' => $like_status
+               'last_posts' => $last_posts
         ]);
     }
 
