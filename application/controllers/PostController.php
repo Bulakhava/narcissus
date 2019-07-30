@@ -21,7 +21,7 @@ class PostController extends Controller
         foreach ($comments as &$value) {
             $value['date_comment'] = date( 'd.m.Y',$value['time']);
         }
-        $all_posts = $this->model->getPostsList();
+        $all_posts = $this->model->getFourPosts();
         $cat_posts = array_filter($all_posts, function ($val) use ($id) {
             return $val['id'] != $id;
         });

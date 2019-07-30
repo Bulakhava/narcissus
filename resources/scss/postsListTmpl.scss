@@ -8,10 +8,14 @@
     flex-wrap: wrap;
   }
 
+  .posts-list-content{
+    width: 80%;
+  }
+
   .cards{
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+
   }
 
   .card{
@@ -97,7 +101,7 @@
 
 @media (max-width: 1100px) {
   .posts-list-tmpl{
-    .cards{
+    .posts-list-content{
       width: 75%;
     }
   }
@@ -121,7 +125,7 @@
 
 @media(max-width:900px){
   .posts-list-tmpl{
-    .cards{
+    .posts-list-content{
       width: 100%;
       order: 2;
     }

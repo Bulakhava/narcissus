@@ -1,10 +1,11 @@
 <div class="posts-list-tmpl">
     <div class="wrapper">
+
+        <div class="posts-list-content">
+
         <div class="cards">
-
             <?php foreach ($posts as $post): ?>
-
-            <div class="card">
+                <div class="card">
                 <div class="card-body">
                     <a href="/post/<?php echo $post['id']; ?>" class="card-image">
                         <img src="<?php echo $post['imgSrc']; ?>"
@@ -22,7 +23,6 @@
                                 $post_id = $post['id'];
                                 include($_SERVER['DOCUMENT_ROOT'] . '/application/views/shared/likes.php');
                                 ?>
-
                             </div>
                         </div>
                     </div>
@@ -33,8 +33,12 @@
 
         </div>
 
+            <?php echo $pagination; ?>
+
+        </div>
+
         <div class="catalog_navigation">
-            <div class="open_catalog_navigation">Все категории</div>
+            <div class="open_catalog_navigation">Все рубрики</div>
             <div class="catalog_navigation_list">
                 <ul>
                     <?php foreach ($categories as $val): ?>
@@ -46,7 +50,6 @@
                             </a>
                         </li>
                     <?php endforeach; ?>
-
                 </ul>
             </div>
         </div>

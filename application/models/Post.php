@@ -32,16 +32,22 @@ class Post extends Model
         return $status;
     }
 
-    public function getPostsList()
+
+    public function getPostsList($limit)
     {
-        return $this->db->row('SELECT * FROM posts ORDER BY time DESC');
+        return $this->db->row('SELECT * FROM posts ORDER BY time DESC ' . $limit);
     }
 
-    public function getPostsListCategory($cat_id){
+    public function getPostsListCategory($cat_id, $limit){
         $params = [
             'category' => $cat_id,
         ];
-        return $this->db->row('SELECT * FROM posts WHERE category = :category', $params);
+        return $this->db->row('SELECT * FROM posts WHERE category = :category ORDER BY time DESC ' . $limit, $params);
+    }
+
+    public function getTotal($sql,$params){
+        $total = $this->db->row($sql, $params);
+        return sizeof($total) ? $total[0]['count'] : 0;
     }
 
     public function getFourPosts()
